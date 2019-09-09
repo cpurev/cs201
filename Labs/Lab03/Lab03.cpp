@@ -38,15 +38,19 @@ void excersice2() {
 
 void excersice3() {
 	int x, y;
-	int i = 0, j = 0;
+	int i = 0;
+	int j = 0;
 	bool a = true;
 
-	cout << "x: "; cin >> x;
-	cout << "y: "; cin >> y;
+	cout << "x: "; 
+	cin >> x;
+	cout << "y: ";
+	cin >> y;
 
 	while (i < y) {
 		while (j < x) {
 			if (a) {
+				
 				cout << "*";
 				a = false;
 			}
