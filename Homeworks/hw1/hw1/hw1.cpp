@@ -5,7 +5,6 @@
 
 
 #include <iostream>
-#include <exception>
 
 using std::cout;
 using std::cin;
@@ -13,17 +12,20 @@ using std::endl;
 
 int main() {
 	int n = 0;
-	while (1 > 0) {
-		cout << "Enter the size of a diamond: ";
-		try {
-			cin >> n;
-			break;
-		}
-		catch (std::runtime_error exp) {
-			cout << "Error: Try Again";
-		}
-	}
 
+	cout << "Enter the size of a diamond: ";
+	while (true) {
+		while (!(cin >> n)) {
+			cin.clear();
+			cin.ignore(999, '\n');
+			cout << "Error: Try Again ~ ";
+			continue;
+		}
+		if (n > 0)
+			break;
+		else
+			cout << "Error: Try Again ~ ";
+	}
 	int space = n;
 
 	for (int i = 0; i < n; i++) {
@@ -37,16 +39,15 @@ int main() {
 		cout << endl;
 	}
 
-	space++;
 
 	for (int i = n; i > 0; i--) {
+		space++;
 		for (int j = 0; j < space; j++) {
 			cout << " ";
 		}
 		for (int k = 0; k < i; k++) {
 			cout << "* ";
 		}
-		space++;
 		cout << endl;
 	}
 
