@@ -20,13 +20,13 @@ int main() {
 		while (!(cin >> n)) {//When cin function takes input and cant put it in a variable because its different type it just freezes.
 			cin.clear();//To fix that we clear the function.
 			cin.ignore(999, '\n');//And ignore all 999 characters in that line and start getting input from the \n line.
-			cout << "Error: Try Again ~ ";
+			cout << "Error~ You have entered non integer: ";
 			continue;
 		}
 		if (n > 0)
 			break;
 		else
-			cout << "Error: Try Again ~ ";
+			cout << "Error~ You have entered negative number or 0: ";
 	}
 
 	int space = n;
