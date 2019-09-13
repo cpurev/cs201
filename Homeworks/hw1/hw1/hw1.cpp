@@ -1,7 +1,7 @@
 //hw1
 //Chuluunbat Purev
 //2019-9-13
-//User input and output
+//Using input and output to print diamond and error handling.
 
 
 #include <iostream>
@@ -14,6 +14,8 @@ int main() {
 	int n = 0;
 
 	cout << "Enter the size of a diamond: ";
+
+	//This is error handling loop when wrong input is entered it will keep looping till it gets the correct input.
 	while (true) {
 		while (!(cin >> n)) {
 			cin.clear();
@@ -26,8 +28,10 @@ int main() {
 		else
 			cout << "Error: Try Again ~ ";
 	}
+
 	int space = n;
 
+	//This loop prints the first half of diamond. Variable space is how many spaces to print till the next *.
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < space; j++) {
 			cout << " ";
@@ -39,7 +43,7 @@ int main() {
 		cout << endl;
 	}
 
-
+	//This loop prints the second half of diamond. It goes exactly opposite way of the first loop.
 	for (int i = n; i > 0; i--) {
 		space++;
 		for (int j = 0; j < space; j++) {
