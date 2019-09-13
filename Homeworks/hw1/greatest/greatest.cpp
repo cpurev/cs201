@@ -23,7 +23,7 @@ int main() {
 		while (!(cin >> n)) {
 			cin.clear();
 			cin.ignore(999, '\n');
-			cout << "Error~ You have entered non integer: ";
+			cout << "Error~ You have entered non integer. Try again: ";
 			continue;
 		}
 		//Input is 0 loop is broken out.
@@ -31,7 +31,7 @@ int main() {
 			break;
 		//Input is negative Error message and goes back to top of loop
 		if (n < 0) {
-			cout << "Error~ You have entered negative number: ";
+			cout << "Error~ You have entered negative number. Try again: ";
 			continue;
 		}
 		cout << "Enter a positive integer: ";
