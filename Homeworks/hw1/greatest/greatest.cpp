@@ -10,8 +10,8 @@ using std::cin;
 using std::endl;
 
 int main() {
-	int n = 0;
-	int a = 0;
+	int n = 0; //Input storing variable. 
+	int a = 0;//Maximum input storing variable.
 
 	cout << "Enter a sequence of positive integers, ending with zero.\nI will print the greatest positive number entered." << endl;
 
