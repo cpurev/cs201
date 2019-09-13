@@ -17,9 +17,9 @@ int main() {
 
 	//This is error handling loop when wrong input is entered it will keep looping till it gets the correct input.
 	while (true) {
-		while (!(cin >> n)) {
-			cin.clear();
-			cin.ignore(999, '\n');
+		while (!(cin >> n)) {//When cin function takes input and cant put it in a variable because its different type it just freezes.
+			cin.clear();//To fix that we clear the function.
+			cin.ignore(999, '\n');//And ignore all 999 characters in that line and start getting input from the \n line.
 			cout << "Error: Try Again ~ ";
 			continue;
 		}
