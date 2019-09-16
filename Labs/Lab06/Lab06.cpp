@@ -1,3 +1,8 @@
+//Lab06.cpp
+//Chuluunbat Purev
+//2016-9-16
+//Funtions with string parameters
+
 #include <iostream>
 #include <string>
 
