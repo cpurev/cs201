@@ -17,11 +17,19 @@ void printPound(string a) {
 	printString(s);
 }
 
+void printBckwrds(string a) {
+	string s;
+	for (int i = a.size()-1; i >= 0; i--) {
+		s += a[i];
+	}
+	printString(s);
+}
+
 int main() {
 
 	printPound("Bay");
 	printString("Bay");
-	
+	printBckwrds("Bay");
 
 	return 0;
 }
