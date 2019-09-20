@@ -19,6 +19,7 @@ int compute(int n) {
 	if (n <= 0)
 		return 0;
 	//If its positive integer
+	//Find number of integers that divises n which are less than n 
 	int a=0;
 	if (n > 0) {
 		for (int i = 1; i < n; i++) {
@@ -27,5 +28,5 @@ int compute(int n) {
 		}
 	}
 	return a;
-	//return n * n;
+	//return n * n; //First assignment 
 }
