@@ -16,6 +16,7 @@ int doInput() {
 //compute(int n)
 int compute(int n) {
 	//Check if its 0 or less.
+	//Returns 0 if true
 	if (n <= 0)
 		return 0;
 	//If its positive integer
