@@ -42,6 +42,7 @@ vector<string> toLowerCase(vector<string> names) {
 	}
 	return a;//Return the lower case vector
 }
+
 //Check if name exists.
 bool doesNameExist(const string& nameToFind, const vector<string>& names) {
 	string a = toLowerCase(nameToFind);
@@ -53,30 +54,46 @@ bool doesNameExist(const string& nameToFind, const vector<string>& names) {
 	return false;
 }
 
-//Prints all the names in inputed order.
+//Prints all the names
 void printNames(const vector<string> &names) {
 	for ( string x : names) {
 		cout << x << " ";
 	}
+	cout << std::endl;
 }
 
-string findMin(const vector<string> names, int n) {
+//Find the minimum character in front of a string. 
+//Comparing with ASCII code
+int findMin(const vector<string> names) {
+	//Highest ASCII code character.Need something to compare it to start
 	char min = '~';
-	string a;
-	for (string x : names) {
-		if (min > x.front()) {
-			min = x.front();
-			a = x;
+	//Found index container
+	int a = 0;
+	for (int i = 0; i < names.size(); i++) {
+		//Take the first letter of a string and compare it
+		if (min > names[i].front()) {
+			min = names[i].front();
+			a = i;
 		}
 	}
 	return a;
 }
-void sortNames(const vector<string>& names) {
-	vector<string> sortedNames;
+//Sorting the  names
+void sortNames(vector<string>& names) {
+	vector<string> sortedNames;//Sorted names container
+	for (string x : names) {
+		//Find index of a name that should be at the top in alphabetical order.
+		int b = findMin(names);
+		sortedNames.push_back(names[b]);//Push that name to container
+		//Erase the found name so the findMin funtion will find different name.
+		names.erase(names.begin() + b);
+	}
+	//Names is empty now it swaps with sortedNames contents.
+	names.swap(sortedNames);
 }
 
 int main() {
-	/*vector<string> names;
+	vector<string> names;
 	inputNames(names);
 
 	toLowerCase(names);
@@ -85,6 +102,10 @@ int main() {
 		cout << "it exists" << std::endl;
 
 	printNames(names);
-	*/
+
+	sortNames(names);
+
+	printNames(names);
+	
 	return 0;
 }
