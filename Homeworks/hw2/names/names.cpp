@@ -31,12 +31,20 @@ bool doesNameExist(const string& nameToFind, const vector<string>& names) {
 	return false;
 }
 
+void printNames(const vector<string> &names) {
+	for (const string x : names) {
+		cout << x << " ";
+	}
+}
+
 int main() {
 	vector<string> names;
 	inputNames(names);
 
 	if (doesNameExist("bat", names))
-		cout << "It exists";
+		cout << "It exists" << std::endl;
+
+	printNames(names);
 
 	return 0;
 }
