@@ -22,9 +22,21 @@ void inputNames(vector<string> &names) {
 		names.push_back(name);
 	}
 }
-
+void toLowerCase(vector<string>& names) {
+	vector<string> a;
+	string b = "";
+	for (string x : names) {
+		for (char c : x) {
+			c = tolower(c);
+			b += c;
+		}
+		x.swap(b);
+		a.push_back(x);
+	}
+	names.swap(a);
+}
 bool doesNameExist(const string& nameToFind, const vector<string>& names) {
-	for (const string x : names) {
+	for ( string x : names) {
 		if (x == nameToFind)
 			return true;
 	}
@@ -32,14 +44,22 @@ bool doesNameExist(const string& nameToFind, const vector<string>& names) {
 }
 
 void printNames(const vector<string> &names) {
-	for (const string x : names) {
+	for ( string x : names) {
 		cout << x << " ";
 	}
+}
+
+void sortNames(const vector<string>& names) {
+	vector<string> sortedNames;
+//	for(const)
 }
 
 int main() {
 	vector<string> names;
 	inputNames(names);
+
+	toLowerCase(names);
+	cout << std::endl;
 
 	if (doesNameExist("bat", names))
 		cout << "It exists" << std::endl;
