@@ -14,6 +14,7 @@ using std::getline;
 using std::vector;
 using std::string;
 
+//Take the names
 void inputNames(vector<string> &names) {
 	for (int i = 0; i < 3; i++) {
 		string name;
@@ -22,27 +23,37 @@ void inputNames(vector<string> &names) {
 		names.push_back(name);
 	}
 }
-void toLowerCase(vector<string>& names) {
-	vector<string> a;
-	string b = "";
+
+//Changes all the names contents to lowercases
+vector<string> toLowerCase(vector<string> names) {
+	vector<string> a;//Lower case storing vector
+	string b = "";//Lower case storing string
 	for (string x : names) {
-		for (char c : x) {
-			c = tolower(c);
-			b += c;
-		}
-		x.swap(b);
-		a.push_back(x);
+		b = toLowerCase(x);
+		a.push_back(b);//Puts the lower case strings to vector
 	}
-	names.swap(a);
+	return a;//Return the lower case vector
 }
+//Change string into lowercase
+string toLowerCase(string str) {
+	string a;
+	for (char c : str) {
+		a += tolower(c);
+	}
+	return a
+}
+//Check if name exists.
 bool doesNameExist(const string& nameToFind, const vector<string>& names) {
-	for ( string x : names) {
-		if (x == nameToFind)
+	string a = toLowerCase(nameToFind);
+	vector<string> b = toLowerCase(names);
+	for ( string x : b) {
+		if (x == a)
 			return true;
 	}
 	return false;
 }
 
+//Prints all the names in inputed order.
 void printNames(const vector<string> &names) {
 	for ( string x : names) {
 		cout << x << " ";
@@ -59,7 +70,6 @@ int main() {
 	inputNames(names);
 
 	toLowerCase(names);
-	cout << std::endl;
 
 	if (doesNameExist("bat", names))
 		cout << "It exists" << std::endl;
