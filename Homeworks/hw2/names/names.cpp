@@ -23,6 +23,14 @@ void inputNames(vector<string> &names) {
 		names.push_back(name);
 	}
 }
+//Change string into lowercase
+string toLowerCase(string str) {
+	string a;
+	for (char c : str) {
+		a += tolower(c);
+	}
+	return a;
+}
 
 //Changes all the names contents to lowercases
 vector<string> toLowerCase(vector<string> names) {
@@ -33,14 +41,6 @@ vector<string> toLowerCase(vector<string> names) {
 		a.push_back(b);//Puts the lower case strings to vector
 	}
 	return a;//Return the lower case vector
-}
-//Change string into lowercase
-string toLowerCase(string str) {
-	string a;
-	for (char c : str) {
-		a += tolower(c);
-	}
-	return a
 }
 //Check if name exists.
 bool doesNameExist(const string& nameToFind, const vector<string>& names) {
@@ -60,21 +60,31 @@ void printNames(const vector<string> &names) {
 	}
 }
 
+string findMin(const vector<string> names, int n) {
+	char min = '~';
+	string a;
+	for (string x : names) {
+		if (min > x.front()) {
+			min = x.front();
+			a = x;
+		}
+	}
+	return a;
+}
 void sortNames(const vector<string>& names) {
 	vector<string> sortedNames;
-//	for(const)
 }
 
 int main() {
-	vector<string> names;
+	/*vector<string> names;
 	inputNames(names);
 
 	toLowerCase(names);
 
 	if (doesNameExist("bat", names))
-		cout << "It exists" << std::endl;
+		cout << "it exists" << std::endl;
 
 	printNames(names);
-
+	*/
 	return 0;
 }
