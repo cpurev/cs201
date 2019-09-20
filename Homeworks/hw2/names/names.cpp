@@ -15,7 +15,7 @@ using std::vector;
 using std::string;
 
 void inputNames(vector<string> &names) {
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 3; i++) {
 		string name;
 		cout << "Please enter a name: ";
 		getline(cin, name);
@@ -23,9 +23,20 @@ void inputNames(vector<string> &names) {
 	}
 }
 
+bool doesNameExist(const string& nameToFind, const vector<string>& names) {
+	for (const string x : names) {
+		if (x == nameToFind)
+			return true;
+	}
+	return false;
+}
+
 int main() {
 	vector<string> names;
 	inputNames(names);
+
+	if (doesNameExist("bat", names))
+		cout << "It exists";
 
 	return 0;
 }
