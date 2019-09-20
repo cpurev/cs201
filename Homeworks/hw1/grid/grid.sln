@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "grid", "grid.vcxproj", "{86DA885D-843C-4529-8AE4-5B3FF9363017}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86DA885D-843C-4529-8AE4-5B3FF9363017}.Debug|x64.ActiveCfg = Debug|x64
+		{86DA885D-843C-4529-8AE4-5B3FF9363017}.Debug|x64.Build.0 = Debug|x64
+		{86DA885D-843C-4529-8AE4-5B3FF9363017}.Debug|x86.ActiveCfg = Debug|Win32
+		{86DA885D-843C-4529-8AE4-5B3FF9363017}.Debug|x86.Build.0 = Debug|Win32
+		{86DA885D-843C-4529-8AE4-5B3FF9363017}.Release|x64.ActiveCfg = Release|x64
+		{86DA885D-843C-4529-8AE4-5B3FF9363017}.Release|x64.Build.0 = Release|x64
+		{86DA885D-843C-4529-8AE4-5B3FF9363017}.Release|x86.ActiveCfg = Release|Win32
+		{86DA885D-843C-4529-8AE4-5B3FF9363017}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9D0AF4F7-FC54-4C3F-9FD8-24C14A47D0E8}
+	EndGlobalSection
+EndGlobal
