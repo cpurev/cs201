@@ -1,3 +1,4 @@
+  
 //greatest.cpp
 //Chuluunabat Purev
 //2019-9-11
@@ -13,13 +14,15 @@ int main() {
 	int n = 0; //Input storing variable. 
 	int a = 0;//Maximum input storing variable.
 
-	cout << "Enter a sequence of positive integers, ending with zero.\nI will print the greatest positive number entered." << endl;
+	cout << "Enter a sequence of positive integers, ending with zero.\n";
+	cout << "I will print the greatest positive number entered." << endl;
 
 	cout << "Enter a positive integer: ";
 
 	//This loop only stops when input is 0.
 	while (true) {
-		//If input is any other type than integer. this loop wont stop. this loop only happens when wrong type is entered.This also takes input.
+		//If input is any other type than integer. this loop wont stop. 
+		//This loop only happens when wrong type is entered.This also takes input.
 		while (!(cin >> n)) {
 			cin.clear();
 			cin.ignore(999, '\n');

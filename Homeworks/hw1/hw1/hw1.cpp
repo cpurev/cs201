@@ -15,11 +15,13 @@ int main() {
 
 	cout << "Enter the size of a diamond: ";
 
-	//This is error handling loop when wrong input is entered it will keep looping till it gets the correct input.
+	//This is error handling loop when wrong input is entered 
+	//it will keep looping till it gets the correct input.
 	while (true) {
-		while (!(cin >> n)) {//When cin function takes input and cant put it in a variable because its different type it just freezes.
-			cin.clear();//To fix that we clear the function.
-			cin.ignore(999, '\n');//And ignore all 999 characters in that line and start getting input from the \n line.
+		//Take input in error checking while-loop
+		while (!(cin >> n)) {
+			cin.clear();//Clearing error flags
+			cin.ignore(999, '\n');//Ignoring current input and scan from the \n
 			cout << "Error~ You have entered non integer. Try again: ";
 			continue;
 		}
@@ -31,7 +33,8 @@ int main() {
 
 	int space = n;
 
-	//This loop prints the first half of diamond. Variable space is how many spaces to print till the next *.
+	//This loop prints the first half of diamond. 
+	//Variable space is how many spaces to print till the next *.
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < space; j++) {
 			cout << " ";
@@ -43,7 +46,8 @@ int main() {
 		cout << endl;
 	}
 
-	//This loop prints the second half of diamond. It goes exactly opposite way of the first loop.
+	//This loop prints the second half of diamond. 
+	//It goes exactly opposite way of the first loop.
 	for (int i = n; i > 0; i--) {
 		space++;
 		for (int j = 0; j < space; j++) {

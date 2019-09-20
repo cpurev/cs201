@@ -32,7 +32,8 @@ int main() {
 	float crss1 = ay * bz - az * by;
 	float crss2 = az * bx - ax * bz;
 	float crss3 = ax * by - bx * ay;
-	cout << "A cross B = (" << setprecision(5) << crss1 << "," << setprecision(5) << crss2 << "," << setprecision(5) << crss3 << ")";
+	cout << "A cross B = (" << setprecision(5) << crss1 << ",";
+	cout << setprecision(5) << crss2 << "," << setprecision(5) << crss3 << ")";
 
 	return 1;
 }
