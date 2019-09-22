@@ -63,10 +63,13 @@ int main() {
 	sum = coins[0] + coins[1] * 5 + coins[2] * 10 + coins[3] * 25 + coins[4] * 50 + coins[5] * 100;
 
 	cout << "The value of all your coins is " << sum << " cents." << endl;
-	//	Find the remainder in the print.
+	
+	int b = sum / 100;
+	//Convert sum to string then insert .
 	string a = std::to_string(sum);
 	if (a.size() > 1)
-		a.insert(1, ".");
+		a.insert(std::to_string(b).size(), ".");
+
 	cout << "The value of all your coins is $" << a << "." << endl;
 	
 	return 0;
