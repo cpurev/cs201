@@ -44,11 +44,11 @@ std::string grmmr(const int& a) {
 int main() {
 
 	int coins[6] = {0};// ;
-	string names[6] = {"pennie", "dime", "quarter", "nickel", "half dollar", "one dollar" };
+	string names[6] = {"pennie", "dime", "nickel", "quarter", "half dollar", "one dollar" };
 	cout << "Enter number of coins ~" << endl;
 
 	for (int i = 0; i < 6; i++) {
-		cout << "How many " << names[i] << " :"; coins[i] = getInt();
+		cout << "How many " << names[i] << " : "; coins[i] = getInt();
 	}
 
 	cout << endl;
@@ -57,7 +57,12 @@ int main() {
 		cout << "You have " << coins[i] << " " << names[i] << grmmr(coins[i]) << endl;
 	}
 
+	int sum = 0;
 
+	sum = coins[0] + coins[1] * 5 + coins[2] * 10 + coins[3] * 25 + coins[4] * 50 + coins[5] * 100;
 
+	cout << "The value of all you coins is " << sum << " cents." << endl;
+	cout << "The value of all you coins is $" << sum/100 << "." << sum%100 << " ." << endl;
+	
 	return 0;
 }
