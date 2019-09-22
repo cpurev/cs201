@@ -35,7 +35,12 @@ int getInt() {
 		}
 	}
 }
-
+char grmmr(const int& a) {
+	if (a > 1)
+		return 's';
+	else
+		return ' ';
+}
 int main() {
 	int pennies, dimes, quarters, nickels, od;
 	cout << "Enter number of coins ~" << endl;
