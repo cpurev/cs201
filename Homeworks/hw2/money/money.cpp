@@ -35,6 +35,7 @@ int getInt() {
 		}
 	}
 }
+//If number is more than return s.
 std::string grmmr(const int& a) {
 	if (a > 1)
 		return "s.";
@@ -46,23 +47,24 @@ int main() {
 	int coins[6] = {0};// ;
 	string names[6] = {"pennie", "dime", "nickel", "quarter", "half dollar", "one dollar" };
 	cout << "Enter number of coins ~" << endl;
-
+	//Loop for getting numbers of couins
 	for (int i = 0; i < 6; i++) {
 		cout << "How many " << names[i] << " : "; coins[i] = getInt();
 	}
 
 	cout << endl;
-
+	//Loop for printing the coins
 	for (int i = 0; i < 6; i++) {
 		cout << "You have " << coins[i] << " " << names[i] << grmmr(coins[i]) << endl;
 	}
 
 	int sum = 0;
-
+	//Calcualte the sum.
 	sum = coins[0] + coins[1] * 5 + coins[2] * 10 + coins[3] * 25 + coins[4] * 50 + coins[5] * 100;
 
-	cout << "The value of all you coins is " << sum << " cents." << endl;
-	cout << "The value of all you coins is $" << sum/100 << "." << sum%100 << " ." << endl;
+	cout << "The value of all your coins is " << sum << " cents." << endl;
+	//	Find the remainder in the print.
+	cout << "The value of all your coins is $" << sum/100 << "." << sum%100 << " ." << endl;
 	
 	return 0;
 }
