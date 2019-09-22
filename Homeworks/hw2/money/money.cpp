@@ -45,7 +45,8 @@ std::string grmmr(const int& a) {
 int main() {
 
 	int coins[6] = {0};// ;
-	string names[6] = {"pennie", "nickel", "dime", "quarter", "half dollar", "one dollar" };
+	string names[6] = 
+		{"pennie", "nickel", "dime", "quarter", "half dollar", "one dollar" };
 	cout << "Enter number of coins ~" << endl;
 	//Loop for getting numbers of couins
 	for (int i = 0; i < 6; i++) {
@@ -60,7 +61,8 @@ int main() {
 
 	int sum = 0;
 	//Calcualte the sum.
-	sum = coins[0] + coins[1] * 5 + coins[2] * 10 + coins[3] * 25 + coins[4] * 50 + coins[5] * 100;
+	sum = coins[0] + coins[1] * 5 + coins[2] * 10 + coins[3] 
+			* 25 + coins[4] * 50 + coins[5] * 100;
 
 	cout << "The value of all your coins is " << sum << " cents." << endl;
 	
