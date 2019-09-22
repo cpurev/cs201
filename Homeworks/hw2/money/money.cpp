@@ -35,24 +35,28 @@ int getInt() {
 		}
 	}
 }
-char grmmr(const int& a) {
+std::string grmmr(const int& a) {
 	if (a > 1)
-		return 's';
+		return "s.";
 	else
-		return ' ';
+		return ".";
 }
 int main() {
-	int pennies, dimes, quarters, nickels, od;
+
+	int coins[6] = {0};// ;
+	string names[6] = {"pennie", "dime", "quarter", "nickel", "half dollar", "one dollar" };
 	cout << "Enter number of coins ~" << endl;
 
-	string a = "How many ";
-	cout << a <<"Pennies: "; pennies = getInt();
-	cout << a <<"Dimes: "; dimes = getInt();
-	cout << a <<"Nickels: "; nickels = getInt();
-	cout << a <<"Quarters: "; quarters = getInt();
-	cout << a <<"One-dollar	coins: "; od = getInt();
+	for (int i = 0; i < 6; i++) {
+		cout << "How many " << names[i] << " :"; coins[i] = getInt();
+	}
 
-	string b = "You have ";
+	cout << endl;
+
+	for (int i = 0; i < 6; i++) {
+		cout << "You have " << coins[i] << " " << names[i] << grmmr(coins[i]) << endl;
+	}
+
 
 
 	return 0;
