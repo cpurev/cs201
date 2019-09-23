@@ -115,6 +115,6 @@ int main() {
 	cout << std::endl;
 	cout << "Sorted the list in alphabetical order: " << std::endl;
 	sortNames(names);
-	
+
 	return 0;
 }
