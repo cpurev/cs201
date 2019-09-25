@@ -12,8 +12,9 @@ int main() {
 			std::cout << i << ", ";
 	}
 	std::cout << std::endl;
-	for (int i = 0; i < 50; i++) {
-		if (isAdivB(i, i))
+	int a = 50;
+	for (int i = 1; i <= 50; i++) {
+		if (isAdivB(i, a--))
 			std::cout << i << " ,";
 	}
 	return 0;
