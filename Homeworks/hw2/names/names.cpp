@@ -16,7 +16,7 @@ using std::string;
 
 //Take the names
 void inputNames(vector<string> &names) {
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 10; i++) {
 		string name;
 		cout << "Please enter a name: ";
 		getline(cin, name);
@@ -26,6 +26,9 @@ void inputNames(vector<string> &names) {
 //Change string into lowercase
 string toLowerCase(string str) {
 	string a;
+
+	//Loop fo each character of string
+	//Append the converted char to container string;
 	for (char c : str) {
 		a += tolower(c);
 	}
@@ -36,6 +39,8 @@ string toLowerCase(string str) {
 vector<string> toLowerCase(vector<string> names) {
 	vector<string> a;//Lower case storing vector
 	string b = "";//Lower case storing string
+
+	//Loop for each string in vector
 	for (string x : names) {
 		b = toLowerCase(x);
 		a.push_back(b);//Puts the lower case strings to vector
@@ -85,27 +90,31 @@ void sortNames(vector<string>& names) {
 		//Find index of a name that should be at the top in alphabetical order.
 		int b = findMin(names);
 		sortedNames.push_back(names[b]);//Push that name to container
-		//Erase the found name so the findMin funtion will find different name.
+		//Erase the found name so the findMin function will find different name.
 		names.erase(names.begin() + b);
 	}
 	//Names is empty now it swaps with sortedNames contents.
-	names.swap(sortedNames);
+	names = sortedNames;
+	printNames(sortedNames);
 }
 
 int main() {
+	cout << "Enter 10 names " << std::endl;
 	vector<string> names;
 	inputNames(names);
 
-	toLowerCase(names);
-
+	cout << std::endl;
+	cout << "Checking if 'bat' is in the list." << std::endl;
 	if (doesNameExist("bat", names))
 		cout << "it exists" << std::endl;
 
+	cout << std::endl;
+	cout << "Printing the list: " << std::endl;
 	printNames(names);
 
+	cout << std::endl;
+	cout << "Sorted the list in alphabetical order: " << std::endl;
 	sortNames(names);
 
-	printNames(names);
-	
 	return 0;
 }
