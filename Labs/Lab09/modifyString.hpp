@@ -10,4 +10,5 @@
  * @return New lenght of referencedString
 */
 int modifyString(std::string& referencedString, int n);
+std::string modifyStringI(std::string s, int& refeerencedInt);
 #endif // !MODIFY_STRING_H

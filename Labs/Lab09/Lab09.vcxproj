@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="modifyString.cpp" />
+    <ClCompile Include="modifyStringMain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
