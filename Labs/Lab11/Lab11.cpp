@@ -13,6 +13,7 @@ int main() {
 
 	std::string x, y, z;
 	for (auto i = 0; i < a.size(); i++) {
+
 		if ('a' <= a[i] && a[i] <= 'z') {
 			x += a[i];
 			continue;
