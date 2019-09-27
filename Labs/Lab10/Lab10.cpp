@@ -7,15 +7,22 @@
 #include "boolDiv.hpp"
 
 int main() {
+
 	for (int i = 1; i <= 40; i++) {
 		if (isDiv3(i))
 			std::cout << i << ", ";
 	}
+
+
 	std::cout << std::endl;
-	int a = 50;
+
+
+
 	for (int i = 1; i <= 50; i++) {
-		if (isAdivB(i, a--))
+		if (isAdivB(i, 2))
 			std::cout << i << " ,";
 	}
+
+
 	return 0;
 }
