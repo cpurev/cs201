@@ -13,11 +13,11 @@ int main() {
 
 	std::string x, y, z;
 	for (auto i = 0; i < a.size(); i++) {
-		if (96 < a[i] && a[i] < 123) {
+		if ('a' < a[i] && a[i] < 'z') {
 			x += a[i];
 			continue;
 		}
-		if(64 < a[i] && a[i] < 91){
+		if('A' < a[i] && a[i] < 'Z'){
 			y += a[i];
 			continue;
 		}
