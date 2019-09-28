@@ -5,14 +5,42 @@
 
 #include "boxer.hpp"
 #include <vector>
+#include <string>
+using std::string;
+using std::getline;
+#include <sstream>
+using std::istringstream;
+
+//getInt
 int getInt() {
-	return 0;
+	int num;
+	while (true)
+	{
+		// Input a line of text
+		string line;
+		getline(std::cin, line);
+
+		// Get an integer from the line, if possible.
+		// Return it on success; otherwise, print a message, and repeat.
+		istringstream instr(line);
+		instr >> num;
+		if (!instr)
+		{
+			std::cout << "*** Try again; type an integer: ";
+		}
+		else
+		{
+			return num;
+		}
+	}
 }
+//printVec
 void printVec(const std::vector<char>& c) {
 	for (auto x : c) {
 		std::cout << x;
 	}
 }
+//printBox
 void printBox(const std::string& msg, const int& n) {
 	int width = msg.size() + n * 2 + 2;
 	int height = n * 2 + 3;
