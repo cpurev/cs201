@@ -1,64 +1,43 @@
-//--xer.cpp
+//boxer.cpp
 //Chuluunbat Purev
-//2019-9-27
-//source of body.hpp
+//2019-9-28
+//Printing string in boxes of asterisk using boxer.hpp
 
 #include "boxer.hpp"
-using std::cout;
-using std::cin;
-#include <string>
-using std::string;
-using std::getline;
-#include <sstream>
-using std::istringstream;
 
-int getInt() {
-	int num;
-	while (true)
-	{
-		// Input a line of text
-		string line;
-		getline(cin, line);
+int main() {
+	int a;
+	std::string msg;
 
-		// Get an integer from the line, if possible.
-		// Return it on success; otherwise, print a message, and repeat.
-		istringstream instr(line);
-		instr >> num;
-		if (!instr)
-		{
-			cout << "*** Try again; type an integer: ";
+	//Prompting user what the program does and how to end it
+	std::cout << "This program prints a string in a box of asterisks*****Type in 0 to stop";
+	std::cout << std::endl;
+
+	//Infinite loop
+	while (true) {
+		std::cout << "Enter 0 to exit/Enter number of layers in box: "; a = getInt();
+
+		//Exit.
+		if (a == 0)
+			break;
+
+
+		//Go back to top if negative number is entere
+		//Type checking is already done in the function
+		if (a < 0) {
+			std::cout << "Can't be negative~" << std::endl;
+			continue;
 		}
-		else
-		{
-			return num;
-		}
+
+
+		std::cout << "Enter the string to display in box: "; std::cin >> msg;
+		printBox(msg, a);
+
+		//Spacing between each invidual boxes
+		std::cout << std::endl;
+
+		//Clreaing input buffer so the error checking in function getInt() wont trigger.
+		std::cin.ignore(999, '\n');
 	}
-}
-
-void printBox(const string& msg, const int& n) {
-	int width = msg.size() + n * 2 + 2;
-	int height = n * 2 + 3;
-
-
-
-
-	for (auto i = 0; i < height; i++) {
-		for (auto j = 0; j < width; j++) {
-			if (i >= n && i < n + 3) {
-				if (j >= n && j < width - n) {
-					if (i == n + 1) {
-						cout << msg;
-						j += msg.size();
-					}
-					cout << " ";
-					continue;
-				}
-				cout << '*';
-				continue;
-			}
-			cout << "*";
-		}
-		cout << std::endl;
-	}
-
+	return 0;
 }

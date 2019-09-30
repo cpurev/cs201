@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{E5C65FDD-978A-43AB-974C-8A809D41936D}</ProjectGuid>
-    <RootNamespace>Boxer</RootNamespace>
+    <ProjectGuid>{0CFB5EC0-E6A5-43CD-854C-9126A73DE0F0}</ProjectGuid>
+    <RootNamespace>boxer</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -123,11 +123,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="boxer.cpp" />
-    <ClCompile Include="boxprint.cpp" />
+    <ClInclude Include="boxer.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="boxer.hpp" />
+    <ClCompile Include="boxer.cpp" />
+    <ClCompile Include="boxerprint.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
