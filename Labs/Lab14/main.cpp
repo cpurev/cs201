@@ -11,7 +11,8 @@ int main() {
 
 	std::cout << std::endl;
 
-	printPyr("confabulation");
+	printPyr("confabultion");
+
 
 	return 0;
 }
