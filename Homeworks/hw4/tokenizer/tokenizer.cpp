@@ -44,6 +44,7 @@ unsigned stringToTokenWS(std::vector<std::string>& tokens) {
 				chckString.append(" ");
 			}
 		}
+		chckStr = false;
 		newTokens.push_back(" ");
 		ss.clear();
 		num++;
