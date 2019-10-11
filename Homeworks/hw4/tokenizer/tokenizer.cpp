@@ -24,11 +24,26 @@ unsigned stringToTokenWS(std::vector<std::string>& tokens) {
 	std::vector<std::string> newTokens;
 	std::string a;
 	int num = 0;
+	bool chckStr = false;
+	std::string chckString = "";
 
 	for (auto s : tokens) {
 		ss.str(s);
-		while (ss >> a) 
-			newTokens.push_back(a);
+		while (ss >> a) {
+			if (a.front() == '\"')
+				chckStr = true;
+			if (a.back() == '\"') {
+				newTokens.push_back(chckString + a);
+				chckStr = false;
+				continue;
+			}
+			if (!chckStr)
+				newTokens.push_back(a);
+			else {
+				chckString += a;
+				chckString.append(" ");
+			}
+		}
 		newTokens.push_back(" ");
 		ss.clear();
 		num++;
@@ -62,7 +77,6 @@ void analyzeTokens(const std::vector<std::string>& tokens) {
 				std::cout << "[Identifier]\t" << "\"" << str << "\"" << std::endl;
 			else
 				std::cout << "[Other]\t" << "\"" << str << "\"" << std::endl;
-
 
 		}
 
