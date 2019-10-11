@@ -125,6 +125,9 @@
   <ItemGroup>
     <ClInclude Include="tokenizer.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="tokenizer.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
