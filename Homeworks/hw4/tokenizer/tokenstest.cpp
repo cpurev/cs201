@@ -18,19 +18,11 @@ int main() {
 		tokens.push_back(str);
 	}
 
-	std::cout << tokens.size() << std::endl;
 	std::cout << stringToTokenWS(tokens) << std::endl;
-	std::cout << tokens.size() << std::endl;
 
 	std::cout << std::endl;
 
-	std::cout << "************************************" << std::endl;
-
-	for (auto s : tokens)
-		std::cout << s << std::endl;
-
-	std::cout << "************************************" << std::endl;
-	//analyzeTokens(tokens);
+	analyzeTokens(tokens);
 
 
 	return 0;
