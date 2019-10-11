@@ -16,7 +16,7 @@ int main() {
 
 	while (true) {
 		readLine(str);
-		if (str.compare("end") == 0)
+		if (str == "END" || str == "End" || str == "end")
 			break;
 		tokens.push_back(str);
 	}
