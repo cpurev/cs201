@@ -22,10 +22,9 @@ unsigned stringToTokenWS(std::vector<std::string>& tokens) {
 	int num = 0;
 	for (auto s : tokens) {
 		ss.str(s);
-		while (ss >> a) {
+		while (ss >> a) 
 			newTokens.push_back(a);
-			newTokens.push_back(" ");
-		}
+		newTokens.push_back(" ");
 		ss.clear();
 		num++;
 	}
@@ -43,13 +42,12 @@ void analyzeTokens(const std::vector<std::string>& tokens) {
 		if (ss >> b) 
 			std::cout << "[Number]\t" << "\"" << b << "\"" << std::endl;\
 		else {
-			ss.clear();
-			ss >> str;
-			if (str.front == "\"" && str.back == "\"") 
+			str = s;
+			if (str.front() == '\"' && str.back() == '\"') 
 				std::cout << "[String]\t" << "\"" << str << "\"" << std::endl;
-			else if(str.compare(" "))
+			else if(str == " ")
 				std::cout << "[Whitespace]\t" << "\"\"" << std::endl;
-			else if (str.front == '_' || (str.front <= 'z' && str.front >= 'a') || (str.front <= 'Z' && str.front >= 'A'))
+			else if (str.front() == '_' || (str.front() <= 'z' && str.front() >= 'a') || (str.front() <= 'Z' && str.front() >= 'A'))
 				std::cout << "[Identifier]\t" << "\"" << str << "\"" << std::endl;
 			else
 				std::cout << "[Other]\t" << "\"" << str << "\"" << std::endl;
