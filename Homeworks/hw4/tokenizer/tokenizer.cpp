@@ -80,7 +80,7 @@ void analyzeTokens(const std::vector<std::string>& tokens) {
 			else if (str.front() == '_' || (str.front() <= 'z' && str.front() >= 'a') || (str.front() <= 'Z' && str.front() >= 'A'))
 				std::cout << "[Identifier]\t" << "\"" << str << "\"" << std::endl;
 			else
-				std::cout << "[Other]\t" << "\"" << str << "\"" << std::endl;
+				std::cout << "[Other]\t" << "\t\"" << str << "\"" << std::endl;
 
 		}
 
