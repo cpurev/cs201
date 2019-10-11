@@ -23,7 +23,7 @@ int main() {
 
 	std::cout << std::endl;
 
-	std::cout << "Number of strings tokenized: " << stringToTokenWS(tokens) << std::endl;
+	std::cout << "Number of lines tokenized(Exculded End): " << stringToTokenWS(tokens) << std::endl;
 
 	std::cout << std::endl;
 
