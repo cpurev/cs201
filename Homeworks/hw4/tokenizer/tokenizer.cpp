@@ -18,7 +18,7 @@ unsigned stringToTokenWS(std::vector<std::string>& tokens) {
 	std::vector<std::string> newTokens;
 	std::istringstream ss;
 	std::string a;
-	int num;
+	int num = 0;
 	for (auto s : tokens) {
 		ss.str(s);
 		while (std::getline(ss, a, ' ')) {
@@ -29,5 +29,5 @@ unsigned stringToTokenWS(std::vector<std::string>& tokens) {
 		
 	}
 	tokens = newTokens;
-
+	return num;
 }
