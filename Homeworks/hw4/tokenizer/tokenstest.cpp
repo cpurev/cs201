@@ -21,7 +21,9 @@ int main() {
 		tokens.push_back(str);
 	}
 
-	std::cout << stringToTokenWS(tokens) << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "Number of strings tokenized: " << stringToTokenWS(tokens) << std::endl;
 
 	std::cout << std::endl;
 
