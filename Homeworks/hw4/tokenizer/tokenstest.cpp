@@ -14,6 +14,8 @@ int main() {
 	std::cout << "Please type in some text. When you are done , type ";
 	std::cout << "\"End\", \"end\" or \"End\":" << std::endl;
 
+	//Loop till end entered
+	//Put all the intputs in tokens
 	while (true) {
 		readLine(str);
 		if (str == "END" || str == "End" || str == "end")
@@ -23,10 +25,12 @@ int main() {
 
 	std::cout << std::endl;
 
-	std::cout << "Number of lines tokenized(Exculded End): " << stringToTokenWS(tokens) << std::endl;
+	//Print lines
+	std::cout << "Number of lines tokenized(Exculded End): " << 
+		 stringToTokenWS(tokens) << std::endl;
 
 	std::cout << std::endl;
-
+	
 	analyzeTokens(tokens);
 
 
