@@ -5,6 +5,7 @@
 
 #include <iostream>
 
+//Recursive function printing all the integers in the sequence
 bool collatz(int n) {
 	std::cout << n << " ";
 	if (n == 1)
@@ -18,6 +19,9 @@ bool collatz(int n) {
 int main() {
 	int n;
 	std::cout << "This program prints collatz sequence" << std::endl;
+
+	//Infinite loop till positive interger is entered
+	//No type checking
 	while (true) {
 		std::cout << "Enter an integer positive integer: "; std::cin >> n;
 		if (n <= 0)
