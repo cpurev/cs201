@@ -9,17 +9,22 @@
 
 
 bool readLine(std::string& str) {
+
 	std::getline(std::cin, str);
+
 	if (str.length() == 0)
 		return false;
+
 	return true;
 }
 
 unsigned stringToTokenWS(std::vector<std::string>& tokens) {
+
 	std::istringstream ss;
 	std::vector<std::string> newTokens;
 	std::string a;
 	int num = 0;
+
 	for (auto s : tokens) {
 		ss.str(s);
 		while (ss >> a) 
@@ -28,20 +33,26 @@ unsigned stringToTokenWS(std::vector<std::string>& tokens) {
 		ss.clear();
 		num++;
 	}
+
 	tokens = newTokens;
 	return num;
 }
 
 void analyzeTokens(const std::vector<std::string>& tokens) {
+
 	std::istringstream ss;
 	double b = 0;
 	std::string str;
+
 	for (auto s : tokens) {
+
 		ss.str(s);
 
 		if (ss >> b) 
 			std::cout << "[Number]\t" << "\"" << b << "\"" << std::endl;\
+
 		else {
+
 			str = s;
 			if (str.front() == '\"' && str.back() == '\"') 
 				std::cout << "[String]\t" << "\"" << str << "\"" << std::endl;
@@ -56,5 +67,6 @@ void analyzeTokens(const std::vector<std::string>& tokens) {
 		}
 
 		ss.clear();
+
 	}
 }

@@ -7,9 +7,12 @@
 #include <iostream>
 
 int main() {
+
 	std::vector<std::string> tokens;
 	std::string str;
 
+	std::cout << "Please type in some text. When you are done , type ";
+	std::cout << "\"End\", \"end\" or \"End\":" << std::endl;
 
 	while (true) {
 		readLine(str);
