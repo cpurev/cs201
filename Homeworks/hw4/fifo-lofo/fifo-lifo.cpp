@@ -16,6 +16,8 @@ void fifoPop(vector<string>& container, const string& item) {container.erase(con
 
 void lifoPush(vector<string>& container, const string& item) { fifoPush(container, item); }
 
+void lifoPop(vector<string>& container, const string& item) { container.pop_back(); }
+
 void printContainer(const vector<string>& container) {
 	for (auto c : container)
 		std::cout << c << " ";

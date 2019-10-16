@@ -27,7 +27,7 @@ void fifoPop(vector<string>& container, const string& item);
 void lifoPush(vector<string>& container, const string& item);
 
 //Delete an item
-void lifoPop(vector<string>& containter, const string& item);
+void lifoPop(vector<string>& container, const string& item);
 
 //Shared functionality
 
