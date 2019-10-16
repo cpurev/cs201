@@ -24,7 +24,7 @@ void fifoPop(vector<string>& container, const string& item);
 //The Last item inserted will be the first item to be deleted.
 
 //Insert an item
-void lifoPush(vector<string>& containter, const string& item);
+void lifoPush(vector<string>& container, const string& item);
 
 //Delete an item
 void lifoPop(vector<string>& containter, const string& item);
