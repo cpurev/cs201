@@ -18,6 +18,12 @@ void lifoPush(vector<string>& container, const string& item) { fifoPush(containe
 
 void lifoPop(vector<string>& container, const string& item) { container.pop_back(); }
 
+bool isContainerEmpty(const vector<string>& container) {
+	if (container.empty())
+		return false;
+	return true;
+}
+
 void printContainer(const vector<string>& container) {
 	for (auto c : container)
 		std::cout << c << " ";
