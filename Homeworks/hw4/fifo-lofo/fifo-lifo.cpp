@@ -23,8 +23,8 @@ void lifoPop(vector<string>& container, const string& item) { container.pop_back
 //using empty() find if its empty
 bool isContainerEmpty(const vector<string>& container) {
 	if (container.empty())
-		return false;
-	return true;
+		return true;
+	return false;
 }
 
 //using element for-loop we print with whitespaces between elemtns
