@@ -55,9 +55,14 @@ int main() {
 		std::size_t found;
 		for (auto i = 0; i < n.size(); i++) {
 
-			if (n[i] == str[i]) 
+			if (answr[i] == str[i]) {
 				bulls++;
-			else
+			}
+			else {
+				found = str.find(answr[i]);
+				if (found != std::string::npos)
+					cows++;
+			}
 		}
 
 		if (bulls == 4) {
