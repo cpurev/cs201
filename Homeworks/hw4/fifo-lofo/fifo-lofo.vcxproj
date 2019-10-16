@@ -125,6 +125,9 @@
   <ItemGroup>
     <ClInclude Include="fifo-lifo.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="fifo-lifo.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
