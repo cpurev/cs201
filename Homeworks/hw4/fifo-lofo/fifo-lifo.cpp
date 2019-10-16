@@ -13,3 +13,7 @@ using std::endl;
 void fifoPush(vector<string>& container, const string& item) {
 	container.push_back(item);
 }
+
+void fifoPop(vector<string>& container, const string& item) {
+	container.erase(container.begin());
+}
