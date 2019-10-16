@@ -15,7 +15,7 @@ using std::string;
 //The First item inserted will be the first item to be deleted.
 
 //Insert an item
-void fifoPush(vector<string>& containter, const string& item);
+void fifoPush(vector<string>& container, const string& item);
 
 //Delete an item
 void fifoPop(vector<string>& container, const string& item);

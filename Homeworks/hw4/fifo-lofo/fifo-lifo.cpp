@@ -10,3 +10,6 @@ using std::endl;
 
 #include "fifo-lifo.hpp"
 
+void fifoPush(vector<string>& container, const string& item) {
+	container.push_back(item);
+}
