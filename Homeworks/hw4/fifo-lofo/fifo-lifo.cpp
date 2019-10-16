@@ -14,7 +14,7 @@ void fifoPush(vector<string>& container, const string& item) {container.push_bac
 
 void fifoPop(vector<string>& container, const string& item) {container.erase(container.begin());}
 
-void lifoPush(vector<string>& container, const string& item) { fifoPush(container, item); }
+void lifoPush(vector<string>& container, const string& item) { container.push_back(item); }
 
 void lifoPop(vector<string>& container, const string& item) { container.pop_back(); }
 

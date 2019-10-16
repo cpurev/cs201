@@ -37,10 +37,5 @@ bool isContainerEmpty(const vector<string>& containter);
 //Using element loop print all the items with newline;
 void printContainer(const vector<string>& container);
 
-//Testing functions
-
-//Call other functions and return true at the end
-bool testFifo();
-bool testLifo();
 
 #endif // !FIFO_LIFO
