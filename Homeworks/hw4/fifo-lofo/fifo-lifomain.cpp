@@ -10,8 +10,12 @@ int main() {
 
 	vector<string> str;
 
-	for (auto i = 1; i <= 10; i++)
-		fifoPush(str, std::to_string(i));
+	//If its empty fill with values
+	//If not proceed
+	if (isContainerEmpty(str)) {
+		for (auto i = 1; i <= 10; i++)
+			fifoPush(str, std::to_string(i));
+	}
 
 	std::cout << "The list is:" << std::endl;
 	printContainer(str);
@@ -27,7 +31,9 @@ int main() {
 	printContainer(str);
 	std::cout << std::endl;
 
-	//We
+	//We do this so we have the original list back
+	//It works because we used LIFO
+	//If we used FIFO before this would not give original list
 	fifoPush(str, "A");
 
 	std::cout << "FIFO pop:" << std::endl;
