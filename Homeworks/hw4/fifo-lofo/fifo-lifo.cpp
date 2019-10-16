@@ -10,13 +10,9 @@ using std::endl;
 
 #include "fifo-lifo.hpp"
 
-void fifoPush(vector<string>& container, const string& item) {
-	container.push_back(item);
-}
+void fifoPush(vector<string>& container, const string& item) {container.push_back(item);}
 
-void fifoPop(vector<string>& container, const string& item) {
-	container.erase(container.begin());
-}
+void fifoPop(vector<string>& container, const string& item) {container.erase(container.begin());}
 
 void printContainer(const vector<string>& container) {
 	for (auto c : container)
