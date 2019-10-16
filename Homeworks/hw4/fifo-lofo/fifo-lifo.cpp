@@ -17,3 +17,8 @@ void fifoPush(vector<string>& container, const string& item) {
 void fifoPop(vector<string>& container, const string& item) {
 	container.erase(container.begin());
 }
+
+void printContainer(const vector<string>& container) {
+	for (auto c : container)
+		std::cout << c << " ";
+}

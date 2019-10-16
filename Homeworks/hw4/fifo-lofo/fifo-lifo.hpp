@@ -8,8 +8,8 @@ using std::vector;
 #include <string>
 using std::string;
 
-#ifndef FIFO-LIFO
-#define FIFO-LIFO
+#ifndef FIFO_LIFO
+#define FIFO_LIFO
 
 //First-In First-Out
 //The First item inserted will be the first item to be deleted.
@@ -43,4 +43,4 @@ void printContainer(const vector<string>& container);
 bool testFifo();
 bool testLifo();
 
-#endif // !FIFO-LIFO
+#endif // !FIFO_LIFO
