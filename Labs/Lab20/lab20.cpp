@@ -18,7 +18,10 @@ int main() {
 		a = i * M_PI / 180;
 
 		//Set the stream to fixed so it exactly shows 8 digits as it is set in setprecision(8)
-		std::cout << std::fixed << i << "\t" << std::setprecision(8) << std::cos(a) << std::endl;
+		std::cout << std::fixed << i << "\t" << std::setprecision(8) << std::cos(a);
+
+		//Scientific for the scientific notation
+		std::cout << "\t" << std::scientific << std::exp(i / 10) << std::endl;
 
 	}
 
