@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{F98BD7CF-8515-4A4B-AFCB-4B350F0B664C}</ProjectGuid>
-    <RootNamespace>Lab19</RootNamespace>
+    <ProjectGuid>{BA98F2CC-D7E5-453C-937B-8942143299DA}</ProjectGuid>
+    <RootNamespace>Lab20</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -76,7 +76,6 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -124,11 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="floating_point.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="floating_point.cpp" />
-    <ClCompile Include="L19_Floating_Point.cpp" />
+    <ClCompile Include="lab20.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

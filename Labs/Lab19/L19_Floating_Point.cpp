@@ -21,7 +21,7 @@ int main() {
 	// You can comment this for loop out after that.
 	std::vector<double> v1{ 1, 2, 3, 4, 5 };
 	std::vector<double> v;
-	for (int i = 2; i < v1.size(); ++i) {
+	for (size_t i = 2; i < v1.size(); ++i) {
 		++v1[i];
 		std::cout << v1[i] << std::endl;
 	}
