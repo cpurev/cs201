@@ -17,10 +17,12 @@ int main() {
 		{ 7, "Wat"}
 	};
 
+	mp.erase(8);
+
 	for (const auto& p : mp) {
 		auto k = p.first;
 		auto v = p.second;
-		std::cout << "Key: " << k << " Value: " << v << std::endl;
+		std::cout << "Key: " << k << "\t\tValue: " << v << std::endl;
 	}
 
 
