@@ -1,8 +1,14 @@
 //bulls-and-cows.cpp
 //Chuluunbat Purev
+//2019-11-2
+//A guessing game called Bulls and Cows with FLTK
+
+//bulls-and-cows.cpp
+//Chuluunbat Purev
 //2019-10-10
 //A guessing game called Bulls and Cows
 
+//Standart Libraries
 #include <vector>
 #include <iostream>
 #include <string>
@@ -17,30 +23,37 @@
 #include <FL/Fl_Button.H>
 #include <FL/fl_ask.H>
 
+//Global variables so the functions can use them
 std::string answr;
 
 std::istringstream iss;
 std::ostringstream oss;
 
+//Callback function prototypes
 void eval(Fl_Widget* o, void*);
 void generateRanNum();
 void quitF(Fl_Widget*, void*);
 
 int main(int argc, char** argv) {
 
+	//Random 4 digit number generator
 	generateRanNum();
 
+	//Window
 	Fl_Window* window = new Fl_Window(400, 150);
 
 	//User prompt
 	Fl_Multiline_Output* prmpt = new Fl_Multiline_Output(0, 0, 400, 50, 0);
 	prmpt->value("\t\tBulls and Cows\n\tGuess the 4 digit number\t The number is random");
 
+	//User input
 	Fl_Input* inpt = new Fl_Input(50, 70, 100, 50, 0);
 
+	//Guess button
 	Fl_Button* guess = new Fl_Button(180, 70, 55, 40, "Guess!");
 	guess->callback(eval);
 
+	//Quit button
 	Fl_Button* quit = new Fl_Button(300, 70, 55, 40, "Quit");
 	quit->callback(quitF);
 
@@ -50,6 +63,7 @@ int main(int argc, char** argv) {
 
 }
 
+//Alert the user the answer and exit();
 void quitF(Fl_Widget*, void*) {
 	oss.clear();
 	oss << "The answer was: " << answr;
@@ -57,6 +71,8 @@ void quitF(Fl_Widget*, void*) {
 	exit(0);
 }
 
+//using standart random function we loop 4 times for 4 random numbers
+//Append to global variable answr;
 void generateRanNum() {
 
 	//Setting the seed of random
@@ -70,6 +86,8 @@ void generateRanNum() {
 
 }
 
+//Evaluate the inputed value
+//Handles exceptions
 void eval(Fl_Widget* o, void*) {
 
 	//Get the widgets
@@ -80,7 +98,6 @@ void eval(Fl_Widget* o, void*) {
 	//User input as string
 	std::string str;
 	str = inpt->value();
-
 
 	//User input as int
 	int gsdNum;
@@ -123,11 +140,11 @@ void eval(Fl_Widget* o, void*) {
 	}
 
 	//Last check to know if user was correct
-	if (bulls == 4) 
+	if (bulls == 4)
 		outpt->value("You guessed right!");
 	else {
 
-		//Print results
+		//Using output string we collect the strings
 		oss << "Bull:  "<< bulls << " Cow: " << cows;
 		outpt->value(oss.str().c_str());
 	}
