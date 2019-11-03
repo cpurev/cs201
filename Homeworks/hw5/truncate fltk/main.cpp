@@ -77,5 +77,5 @@ void trunc8(Fl_Widget* o, void*) {
 
 	//Outputing value;
 	answr->value(str.str.c_str());
-	
+
 }
