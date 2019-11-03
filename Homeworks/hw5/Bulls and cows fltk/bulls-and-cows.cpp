@@ -16,9 +16,14 @@
 #include <FL/Fl_Multiline_Output.H>
 #include <FL/Fl_Button.H>
 
+std::string answr;
+
 void eval(Fl_Widget* o, void*);
+void generateRanNum();
 
 int main(int argc, char** argv) {
+
+	generateRanNum();
 
 	Fl_Window* window = new Fl_Window(400, 150);
 
@@ -39,25 +44,7 @@ int main(int argc, char** argv) {
 
 }
 
-void eval(Fl_Widget* o, void*) {
-
-	Fl_Button* guess = (Fl_Button*)o;
-	Fl_Input* inpt = (Fl_Input*)guess->parent()->child(1);
-
-	//User input as string
-	std::string str;
-	str = inpt->value();
-
-	std::istringstream iss;
-
-	//User input as int
-	int gsdNum;
-
-	//The number to guess in string
-	std::string answr;
-
-	int cows = 0;
-	int bulls = 0;
+void generateRanNum() {
 
 	//Setting the seed of random
 	//We do this set rand() function truly random each time
@@ -68,20 +55,43 @@ void eval(Fl_Widget* o, void*) {
 		//A random number between 1 to 10
 		answr.append(std::to_string(rand() % 10 + 1));
 
+}
+
+void eval(Fl_Widget* o, void*) {
+
+	//Get the widgets
+	Fl_Button* guess = (Fl_Button*)o;
+	Fl_Output* outpt = (Fl_Output*)guess->parent()->child(0);
+	Fl_Input* inpt = (Fl_Input*)guess->parent()->child(1);
+
+	//User input as string
+	std::string str;
+	str = inpt->value();
+
+	std::istringstream iss;
+	std::ostringstream oss;
+
+
+	//User input as int
+	int gsdNum;
+
+	int cows = 0;
+	int bulls = 0;
+
 	//In istringstream to check type
 	iss.str(str);
 	if (!(iss >> gsdNum)) {
-		inpt->value("Enter a whole number~~Try again");
+		outpt->value("Enter a whole number"); return;
 	}
 
 	//Checking if entered number is 4 digits 
 	if (str.size() != 4) {
-		inpt->value("Enter 4 digit number~~Try again");
+		outpt->value("Enter 4 digit number"); return;
 	}
 
 	//Needs to be positive
 	if (gsdNum < 0) {
-		inpt->value("Enter positive number~~Try again");
+		outpt->value("Enter positive number"); return;
 	}
 
 	//Position of found char in string
@@ -103,16 +113,13 @@ void eval(Fl_Widget* o, void*) {
 	}
 
 	//Last check to know if user was correct
-	if (bulls == 4) {
-		std::cout << "You guessed right!";
-	}
+	if (bulls == 4) 
+		outpt->value("You guessed right!");
 	else {
 
 		//Print results
-		std::cout << bulls << " bull and " << cows << " cow" << std::endl;
-
-		//Set the counters to 0 for the next guessed number.
-		bulls = 0; cows = 0;
+		oss << "Bull:  "<< bulls << " Cow: " << cows;
+		outpt->value(oss.str().c_str());
 	}
 
 
