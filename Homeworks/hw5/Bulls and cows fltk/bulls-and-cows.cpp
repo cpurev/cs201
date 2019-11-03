@@ -9,6 +9,13 @@
 #include <sstream>
 #include <ctime>
 
+//FLTK libraries
+#include <FL/Fl.H>
+#include <FL/Fl_Input.H>
+#include <FL/Fl_Double_Window.H>
+#include <FL/Fl_Multiline_Input.H>
+#include <FL/Fl_Input.H>
+#include <FL/Fl_Button.H>
 
 int main() {
 
@@ -103,5 +110,6 @@ int main() {
 			bulls = 0; cows = 0;
 		}
 	}
+
 
 }
