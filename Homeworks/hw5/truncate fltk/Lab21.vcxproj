@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{1A4E5A0B-2BEE-4348-9EDF-DAA887D08882}</ProjectGuid>
-    <RootNamespace>tokenizer</RootNamespace>
+    <ProjectGuid>{09973762-CDAB-4006-BF4C-482EE0FF0E1D}</ProjectGuid>
+    <RootNamespace>Lab21</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -123,11 +123,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="tokenizer.hpp" />
+    <ClInclude Include="truncstruct.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="tokenizer.cpp" />
-    <ClCompile Include="tokenstest.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="truncstruct.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
