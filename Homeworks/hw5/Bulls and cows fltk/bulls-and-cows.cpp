@@ -15,11 +15,16 @@
 #include <FL/Fl_Double_Window.H>
 #include <FL/Fl_Multiline_Output.H>
 #include <FL/Fl_Button.H>
+#include <FL/fl_ask.H>
 
 std::string answr;
 
+std::istringstream iss;
+std::ostringstream oss;
+
 void eval(Fl_Widget* o, void*);
 void generateRanNum();
+void quitF(Fl_Widget*, void*);
 
 int main(int argc, char** argv) {
 
@@ -37,11 +42,19 @@ int main(int argc, char** argv) {
 	guess->callback(eval);
 
 	Fl_Button* quit = new Fl_Button(300, 70, 55, 40, "Quit");
+	quit->callback(quitF);
 
 	window->end();
 	window->show(argc, argv);
 	return Fl::run();
 
+}
+
+void quitF(Fl_Widget*, void*) {
+	oss.clear();
+	oss << "The answer was: " << answr;
+	fl_alert(oss.str().c_str());
+	exit(0);
 }
 
 void generateRanNum() {
@@ -67,9 +80,6 @@ void eval(Fl_Widget* o, void*) {
 	//User input as string
 	std::string str;
 	str = inpt->value();
-
-	std::istringstream iss;
-	std::ostringstream oss;
 
 
 	//User input as int
