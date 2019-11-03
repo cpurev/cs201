@@ -14,6 +14,7 @@
 #include <FL/Fl_Button.H>
 
 void trunc8(Fl_Widget* o, void*);
+void quitF(Fl_Widget* o, void*);
 
 int main() {
 
@@ -31,6 +32,7 @@ int main() {
 	trunc->callback(trunc8);
 
 	Fl_Button* quit = new Fl_Button(200, 110, 65, 30, "Quit");
+	quit->callback(quitF);
 
 	/*std::string a;
 	std::cout << " to 8: "; std::cin >> a;
@@ -45,14 +47,28 @@ int main() {
 	return Fl::run();
 }
 
+void quitF(Fl_Widget* o, void*) {
+	exit(0);
+}
+
 void trunc8(Fl_Widget* o, void*) {
 
-	Fl_Button* trunc = (Fl_Button*)o;
-	Fl_Output* answr = (Fl_Output*)trunc->parent()->child(3);
+	std::istringstream iss;
+	std::size_t a;
+	std::string b;
 
-	Fl_Input* inpt = (Fl_Input*)trunc->parent()->child(1);
-	Fl_Input* num = (Fl_Input*)trunc->parent()->child(2);
+	Fl_Button* truncB = (Fl_Button*)o;
+	Fl_Output* answr = (Fl_Output*)truncB->parent()->child(3);
 
+	Fl_Input* inpt = (Fl_Input*)truncB->parent()->child(1);
+	Fl_Input* num = (Fl_Input*)truncB->parent()->child(2);
 
+	b = num->value();
+	iss.str(b);
+	iss >> a;
+
+	StringInfo str = trunc(StringInfo{ inpt->value(), a });
+
+	answr->value(str.str.c_str());
 	
 }
