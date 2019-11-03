@@ -6,6 +6,12 @@
 #include "fifo-lifo.hpp"
 #include <iostream>
 
+//FLTK libraries
+#include <FL/Fl.H>
+#include <FL/Fl_Button.H>
+#include <FL/Fl_Input.H>
+#include <Fl_Multiline_Output.H>
+
 int main() {
 
 	vector<string> str;
