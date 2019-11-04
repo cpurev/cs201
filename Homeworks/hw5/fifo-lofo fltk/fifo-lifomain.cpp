@@ -102,7 +102,7 @@ int main() {
 	lifoPsh->callback(fifoPushF);
 
 	//LiFo pop button
-	Fl_Button* lifoPp = new Fl_Button(10, 220, 80, 30, "FIFO POP");
+	Fl_Button* lifoPp = new Fl_Button(10, 220, 80, 30, "LIFO POP");
 	lifoPp->callback(lifoPopF);
 
 	window->end();
