@@ -37,6 +37,20 @@ void fifoPushF(Fl_Widget* o, void*) {
 
 }
 
+void fifoPopF(Fl_Widget* o, void*) {
+	//Get the widgets
+	Fl_Button* btn = (Fl_Button*)o;
+	Fl_Input* inpt = (Fl_Input*)o->parent()->child(1);
+	Fl_Multiline_Output* outpt = (Fl_Multiline_Output*)o->parent()->child(0);
+
+	fifoPop(str, a);
+
+	updateList(str, a);
+
+	outpt->value(a.c_str());
+
+}
+
 int main() {
 
 	Fl_Window* window = new Fl_Window(250, 300, "FiFO-LiFo");
