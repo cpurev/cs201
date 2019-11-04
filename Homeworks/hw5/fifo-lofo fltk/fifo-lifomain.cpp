@@ -6,8 +6,17 @@
 #include "fifo-lifo.hpp"
 #include <iostream>
 
+//FLTK libraries
+#include <FL/Fl.H>
+#include <FL/Fl_Window.H>
+#include <FL/Fl_Button.H>
+#include <FL/Fl_Input.H>
+#include <FL/Fl_Multiline_Output.H>
+
 int main() {
 
+	Fl_Window* window = new Fl_Window(500, 500, "FiFO-LiFo");
+	/*
 	vector<string> str;
 
 	//If its empty fill with values
@@ -42,5 +51,9 @@ int main() {
 	std::cout << std::endl;
 
 
-	return 0;
+	return 0;*/
+
+	window->end();
+	window->show();
+	return Fl::run();
 }
