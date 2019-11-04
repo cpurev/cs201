@@ -13,45 +13,53 @@
 #include <FL/Fl_Input.H>
 #include <FL/Fl_Multiline_Output.H>
 
+//Global variables
+vector<string> str;
+string a;
+
+void updateList(const vector<string>& v, string& str) {
+	str = "";
+	for (auto x : v)
+		str += x + "\n";
+}
+
+void fifoPushF(Fl_Widget* o, void*) {
+	//Get the widgets
+	Fl_Button* btn = (Fl_Button*)o;
+	Fl_Input* inpt = (Fl_Input*)o->parent()->child(1);
+	Fl_Multiline_Output* outpt = (Fl_Multiline_Output*)o->parent()->child(0);
+
+	fifoPush(str, inpt->value());
+
+	updateList(str, a);
+
+	outpt->value(a.c_str());
+
+}
+
 int main() {
 
-	Fl_Window* window = new Fl_Window(500, 500, "FiFO-LiFo");
-	/*
-	vector<string> str;
+	Fl_Window* window = new Fl_Window(250, 300, "FiFO-LiFo");
 
-	//If its empty fill with values
-	//If not proceed
-	if (isContainerEmpty(str)) {
-		for (auto i = 1; i <= 10; i++)
-			fifoPush(str, std::to_string(i));
+	Fl_Multiline_Output* otp = new Fl_Multiline_Output(120, 20, 120, 260, 0);
+
+	for (auto i = 0; i <= 10; i++) {
+		fifoPush(str, std::to_string(i));
+		a += str[i] + "\n";
 	}
+	otp->value(a.c_str());
 
-	std::cout << "The list is:" << std::endl;
-	printContainer(str);
-	std::cout << std::endl;
+	Fl_Input* inpt = new Fl_Input(10, 30, 80, 30, 0);
 
-	std::cout << "Added A to the end:" << std::endl;
-	fifoPush(str, "A");
-	printContainer(str);
-	std::cout << std::endl;
+	Fl_Button* fifoPsh = new Fl_Button(10, 100, 80, 30, "FIFO PUSH");
+	fifoPsh->callback(fifoPushF);
 
-	std::cout << "LIFO pop:" << std::endl;
-	lifoPop(str, "A");
-	printContainer(str);
-	std::cout << std::endl;
+	Fl_Button* fifoPop = new Fl_Button(10, 140, 80, 30, "FIFO POP");
 
-	//We do this so we have the original list back
-	//It works because we used LIFO
-	//If we used FIFO before this would not give original list
-	fifoPush(str, "A");
+	Fl_Button* lifoPsh = new Fl_Button(10, 180, 80, 30, "LIFO PUSH");
+	lifoPsh->callback(fifoPushF);
 
-	std::cout << "FIFO pop:" << std::endl;
-	fifoPop(str, "A");
-	printContainer(str);
-	std::cout << std::endl;
-
-
-	return 0;*/
+	Fl_Button* lifoPop = new Fl_Button(10, 220, 80, 30, "FIFO POP");
 
 	window->end();
 	window->show();
