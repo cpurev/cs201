@@ -17,12 +17,18 @@
 vector<string> str;
 string a;
 
+//Put all the contents of vector in the given string
+//Reset the string everytime its called.
+//New line for every item in vector
+//Looks like vertical list.
 void updateList(const vector<string>& v, string& str) {
 	str = "";
 	for (auto x : v)
 		str += x + "\n";
 }
 
+//fifoPush == lifoPush
+//Add value to the end of the vector
 void fifoPushF(Fl_Widget* o, void*) {
 	//Get the widgets
 	Fl_Button* btn = (Fl_Button*)o;
@@ -37,6 +43,7 @@ void fifoPushF(Fl_Widget* o, void*) {
 
 }
 
+//Pop the first value
 void fifoPopF(Fl_Widget* o, void*) {
 	//Get the widgets
 	Fl_Button* btn = (Fl_Button*)o;
@@ -51,6 +58,7 @@ void fifoPopF(Fl_Widget* o, void*) {
 
 }
 
+//Pop the last value
 void lifoPopF(Fl_Widget* o, void*) {
 	//Get the widgets
 	Fl_Button* btn = (Fl_Button*)o;
@@ -71,23 +79,29 @@ int main() {
 
 	Fl_Multiline_Output* otp = new Fl_Multiline_Output(120, 20, 120, 260, 0);
 
+	//Starting list(vector)
 	for (auto i = 0; i <= 10; i++) {
 		fifoPush(str, std::to_string(i));
 		a += str[i] + "\n";
 	}
 	otp->value(a.c_str());
 
+	//User input
 	Fl_Input* inpt = new Fl_Input(10, 30, 80, 30, 0);
 
+	//Fifo Push Button
 	Fl_Button* fifoPsh = new Fl_Button(10, 100, 80, 30, "FIFO PUSH");
 	fifoPsh->callback(fifoPushF);
 
+	//Fifo Pop button
 	Fl_Button* fifoPp = new Fl_Button(10, 140, 80, 30, "FIFO POP");
 	fifoPp->callback(fifoPopF);
 
+	//LiFo push bottun
 	Fl_Button* lifoPsh = new Fl_Button(10, 180, 80, 30, "LIFO PUSH");
 	lifoPsh->callback(fifoPushF);
 
+	//LiFo pop button
 	Fl_Button* lifoPp = new Fl_Button(10, 220, 80, 30, "FIFO POP");
 	lifoPp->callback(lifoPopF);
 
