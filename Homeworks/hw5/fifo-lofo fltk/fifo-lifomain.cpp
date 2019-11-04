@@ -82,12 +82,14 @@ int main() {
 	Fl_Button* fifoPsh = new Fl_Button(10, 100, 80, 30, "FIFO PUSH");
 	fifoPsh->callback(fifoPushF);
 
-	Fl_Button* fifoPop = new Fl_Button(10, 140, 80, 30, "FIFO POP");
+	Fl_Button* fifoPp = new Fl_Button(10, 140, 80, 30, "FIFO POP");
+	fifoPp->callback(fifoPopF);
 
 	Fl_Button* lifoPsh = new Fl_Button(10, 180, 80, 30, "LIFO PUSH");
 	lifoPsh->callback(fifoPushF);
 
-	Fl_Button* lifoPop = new Fl_Button(10, 220, 80, 30, "FIFO POP");
+	Fl_Button* lifoPp = new Fl_Button(10, 220, 80, 30, "FIFO POP");
+	lifoPp->callback(lifoPopF);
 
 	window->end();
 	window->show();
