@@ -18,11 +18,10 @@ int main() {
 
 	int hd = 0;
 
-	for (auto i = 0; i < 1000; i++) {
+	for (auto i = 0; i < 1000; i++) 
 		if (1 == dis(gen))
 			hd++;
-	}
-
+	
 	std::cout << "A coin is flipped 1000 times here are the results: " << std::endl;
 
 	std::cout << "Heads: " << hd << "\tTails: " << 1000 - hd;
