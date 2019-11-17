@@ -10,14 +10,19 @@
 #include <random>
 #include <cmath>
 
+std::random_device rd;
+std::default_random_engine e1(rd());
+
+int randomBetween(int first, int last) {
+	std::uniform_int_distribution<int> uni_dis(first, last);
+	return uni_dis(e1);
+
+}
 int main() {
 	//Seed with real random value, if avaliable
-	std::random_device rd;
 	
 	//Choose a randommean between 1 and 6
-	std::default_random_engine e1(rd());
-	std::uniform_int_distribution<int> uni_dis(1, 6);
-	int mean = uni_dis(e1);
+	int mean = randomBetween(1, 6);
 	std::cout << "Randomly-choose mean: " << mean << '\n';
 
 	//Generate a normal distribution around that mean
