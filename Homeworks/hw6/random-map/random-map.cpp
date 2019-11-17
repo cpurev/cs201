@@ -13,7 +13,7 @@
 
 //Uniform distribution
 //To randomly generate between first and last
-int randomBetween(const int& first, const int& last, const std::default_random_engine& e) {
+int randomBetweenU(const int& first, const int& last, const std::default_random_engine& e) {
 	std::uniform_int_distribution<int> uni_dis(first, last);
 	return uni_dis(e);
 
@@ -24,6 +24,10 @@ int randomBetween(const int& first, const int& last, const std::default_random_e
 int randomBetweenN(const int& mean, const int& stdDev, const std::default_random_engine& e) {
 	std::normal_distribution<> norm_dis(mean, stdDev);
 	return norm_dis(e);
+}
+
+int randomBetween(const int& first, const int& last) {
+	return rand() % last + first;
 }
 
 int main() {
