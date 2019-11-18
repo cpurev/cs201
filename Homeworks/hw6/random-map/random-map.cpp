@@ -30,11 +30,17 @@ int randomBetweenN(const int& mean, const int& stdDev, std::default_random_engin
 
 //Using rand() function
 //Randomly generate between first and last
+//We divide rand max with upper bound and then divide rand() with it and adding the lower bound
+//Thus getting numbers between first and last
 int randomBetween(const int& first, const int& last) {
 	return first + std::rand() / ((RAND_MAX + 1u) / last);
 }
 
 //Print map
+//We ran the sample by 10000 times to get smaller numbers divide by 200;
+//* represent how many times they appeared. One * is 200 times;
+//first is the value
+//second is how many times that value appeared
 void printDistribution(const std::map<int, int>& numbers) {
 	for(auto x : numbers)
 		std::cout << std::fixed << std::setprecision(1) << std::setw(2)
@@ -50,6 +56,8 @@ int main() {
 
 	std::cout <<"Uniform Distributed"<< std::endl;
 
+	//10000 samples to see the disripution
+	//Uniform distributed
 	std::map<int, int> disU;
 	for (int n = 0; n < 10000; n++) ++disU[randomBetweenU(1, 6, e1)];
 	printDistribution(disU);
@@ -57,11 +65,11 @@ int main() {
 	std::cout << std::endl;
 	std::cout << "Normaly Distributed "<< std::endl;
 
-	//Generate a normal distribution around that mean
+	//Different seed for normal distribution
 	std::seed_seq seed2{ rd(), rd(), rd(), rd(), rd(), rd(), rd(), rd() };
 	std::mt19937 e2(seed2);
 
-
+	//Normal distribution
 	std::map<int, int> disN;
 	for (int n = 0; n < 10000; n++) ++disN[randomBetweenN(3, 1, e2)];
 	printDistribution(disN);
@@ -69,6 +77,7 @@ int main() {
 	std::cout << std::endl;
 	std::cout <<"RAND() function distributed"<< std::endl;
 
+	//RAND() distributed
 	std::map<int, int> dis;
 	for (int n = 0; n < 10000; n++) ++dis[randomBetween(1, 6)];
 	printDistribution(dis);
