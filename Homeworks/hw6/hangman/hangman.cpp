@@ -10,19 +10,22 @@ using std::endl;
 #include <vector>
 #include <string>
 
+//To check int
 std::istringstream iss;
 
-bool hangman(bool won, const std::vector<char>& wrd, std::vector<char>& lttrs, char& c, int state
-				, std::string& score) {
-
+//Recursive function
+bool hangman(bool won, const std::vector<char>& wrd, char& c, int state, std::string& score) {
+	//Check winning
 	if (won)
 		return true;
 
+	//Check loosing
 	if (state >= 5)
 		return false;
 
 	std::string gssdWrd, oldScr; int n;
 
+	//Draw hangman
 	switch (state) {
 	case -1:std::cout << endl
 		<< "~~~~~~~" << endl
@@ -69,8 +72,10 @@ bool hangman(bool won, const std::vector<char>& wrd, std::vector<char>& lttrs, c
 			
 	}
 	
+	//Draw the scores
 	std::cout << score << endl;
 
+	//Input error check
 	do {
 		std::cout << "Guess: ";
 		iss.clear();
@@ -86,43 +91,57 @@ bool hangman(bool won, const std::vector<char>& wrd, std::vector<char>& lttrs, c
 
 	} while (true);
 
+	//Force upper case
 	c = std::toupper(c);
 
+	//Save score before comparing
 	oldScr = score;
 
+	//Get iterator of answers begining
 	auto it = wrd.begin();
 
+	//Loop check and add to the score
 	while ((it = std::find_if(it, wrd.end(), [c](char d) {return d == c; })) != wrd.end()) {
 		score[it - wrd.begin()] = *it;
 		it++;
 	}
 	
+	//If score has not changed aka guess wrong
+	//Increase state aka lose lives
 	if (oldScr.compare(score) == 0) {
-		if (hangman(false, wrd, lttrs, c, ++state, score) == false)
+		if (hangman(false, wrd, c, ++state, score) == false)
 			return false;
 	}
+	
+	//If there is still blank remaining 
+	//This means word is guessed right but the game is not finished
+	//Dont loose lives restart
 	if(score.find("_") != std::string::npos)
-		hangman(false, wrd, lttrs, c, state, score);
+		hangman(false, wrd, c, state, score);
 
+	//Probably wont get here if it do automatic win
 	return true;
 }
 
 int main() {
 	
 	
-	std::vector<char> lttrs;
 	std::vector<char> wrd = { 'K', 'A','N','G', 'A', 'R','O','O' };
 	std::string score = std::string(wrd.size(), '_');
 
 	std::cout << "Hangman. Guess the word" << endl;
 
+	//Does not matter
+	//Will be changed in the hangman function
 	char c = 'A';
 
-	if (hangman(false, wrd, lttrs, c, -1, score)) {
+	//Check winnings and loses
+	if (hangman(false, wrd, c, -1, score)) {
 		std::cout << "You won!\tThe word was: " << score; return 0;
 	}
 	else
 		std::cout << "You lost!\tThe word was: ";
+	//Print the wrd
 	for (auto x : wrd)
 		std::cout << x;
 
