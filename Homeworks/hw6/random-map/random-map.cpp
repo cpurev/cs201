@@ -48,11 +48,14 @@ int main() {
 	std::random_device rd;
 	std::default_random_engine e1(rd());
 
+	std::cout <<"Uniform Distributed"<< std::endl;
+
 	std::map<int, int> disU;
 	for (int n = 0; n < 10000; n++) ++disU[randomBetweenU(1, 6, e1)];
 	printDistribution(disU);
 
 	std::cout << std::endl;
+	std::cout << "Normaly Distributed "<< std::endl;
 
 	//Generate a normal distribution around that mean
 	std::seed_seq seed2{ rd(), rd(), rd(), rd(), rd(), rd(), rd(), rd() };
@@ -64,6 +67,7 @@ int main() {
 	printDistribution(disN);
 
 	std::cout << std::endl;
+	std::cout <<"RAND() function distributed"<< std::endl;
 
 	std::map<int, int> dis;
 	for (int n = 0; n < 10000; n++) ++dis[randomBetween(1, 6)];
