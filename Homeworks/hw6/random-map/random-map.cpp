@@ -13,45 +13,61 @@
 
 //Uniform distribution
 //To randomly generate between first and last
-int randomBetweenU(const int& first, const int& last, const std::default_random_engine& e) {
+int randomBetweenU(const int& first, const int& last, std::default_random_engine& e1) {
+
+
 	std::uniform_int_distribution<int> uni_dis(first, last);
-	return uni_dis(e);
+	return std::round(uni_dis(e1));
 
 }
 
 //Normal distribution
 //Randomly generate from mean and standart deviation
-int randomBetweenN(const int& mean, const int& stdDev, const std::default_random_engine& e) {
+int randomBetweenN(const int& mean, const int& stdDev, std::default_random_engine& e2) {
 	std::normal_distribution<> norm_dis(mean, stdDev);
-	return norm_dis(e);
+	return norm_dis(e2);
 }
 
+//Using rand() function
+//Randomly generate between first and last
 int randomBetween(const int& first, const int& last) {
-	return rand() % last + first;
+	return first + std::rand() / ((RAND_MAX + 1u) / last);
 }
 
+//Print map
 void printDistribution(const std::map<int, int>& numbers) {
 	for(auto x : numbers)
 		std::cout << std::fixed << std::setprecision(1) << std::setw(2)
-		<< x.first << ' ' << std::string(x.second / 200, '*') << '\n';
+		<< x.first << ' ' << std::string(x.second/200 , '*') << '\n';
 
 }
 
 int main() {
+
 	//Seed with real random value, if avaliable
 	std::random_device rd;
 	std::default_random_engine e1(rd());
 
-	std::cout << "Uniform mean: " << randomBetweenU(1, 6, e1) << '\n';
+	std::map<int, int> disU;
+	for (int n = 0; n < 10000; n++) ++disU[randomBetweenU(1, 6, e1)];
+	printDistribution(disU);
+
+	std::cout << std::endl;
 
 	//Generate a normal distribution around that mean
-
 	std::seed_seq seed2{ rd(), rd(), rd(), rd(), rd(), rd(), rd(), rd() };
 	std::mt19937 e2(seed2);
 
-	std::cout << "Normal mean: " << randomBetweenN(1, 6, e2) << '\n';
 
-	std::cout << "Rand mean: " << randomBetween(1, 6) << '\n';
+	std::map<int, int> disN;
+	for (int n = 0; n < 10000; n++) ++disN[randomBetweenN(3, 1, e2)];
+	printDistribution(disN);
+
+	std::cout << std::endl;
+
+	std::map<int, int> dis;
+	for (int n = 0; n < 10000; n++) ++dis[randomBetween(1, 6)];
+	printDistribution(dis);
 
 	return 0;
 }
