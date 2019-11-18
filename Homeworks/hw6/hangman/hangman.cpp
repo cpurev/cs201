@@ -7,13 +7,21 @@
 #include <iostream>
 using std::endl;
 #include <algorithm>
-#include <map>
+#include <vector>
+#include <string>
 
 std::istringstream iss;
 
-bool hangman(bool won, const std::string& wrd, std::map<int, char>& lttrs, char& c, int state) {
+bool hangman(bool won, const std::vector<char>& wrd, std::vector<char>& lttrs, char& c, int state
+				, std::string& score) {
 
-	std::string gssdWrd; int n;
+	if (won)
+		return true;
+
+	if (state >= 5)
+		return false;
+
+	std::string gssdWrd, oldScr; int n;
 
 	switch (state) {
 	case -1:std::cout << endl
@@ -21,47 +29,48 @@ bool hangman(bool won, const std::string& wrd, std::map<int, char>& lttrs, char&
 		<< "|     | " << endl
 		<< "|       " << endl
 		<< "|       " << endl
-		<< "|       " << endl;
+		<< "|       " << endl; break;
 	case 0:std::cout << endl
 		<< "~~~~~~~" << endl
 		<< "|     | " << endl
 		<< "|     O " << endl
 		<< "|       " << endl
-		<< "|       " << endl;
+		<< "|       " << endl; break;
 	case 1:std::cout << endl
 		<< "~~~~~~~" << endl
 		<< "|     | " << endl
 		<< "|     O " << endl
 		<< "|     | " << endl
-		<< "|       " << endl;
+		<< "|       " << endl; break;
 	case 2:std::cout << endl
 		<< "~~~~~~~" << endl
 		<< "|     | " << endl
 		<< "|     O " << endl
 		<< "|     |\\" << endl
-		<< "|       " << endl;
+		<< "|       " << endl; break;
 	case 3:std::cout << endl
 		<< "~~~~~~~" << endl
 		<< "|     | " << endl
 		<< "|     O " << endl
 		<< "|    /|\\" << endl
-		<< "|       " << endl;
+		<< "|       " << endl; break;
 	case 4:std::cout << endl
 		<< "~~~~~~~" << endl
 		<< "|     | " << endl
 		<< "|     O " << endl
 		<< "|    /|\\" << endl
-		<< "|    /  " << endl;
+		<< "|    /  " << endl; break;
 	case 5:std::cout << endl
 		<< "~~~~~~~" << endl
 		<< "|     | " << endl
 		<< "|     O " << endl
 		<< "|    /|\\" << endl
-		<< "|    / \\" << endl;
+		<< "|    / \\" << endl; break;
 			
 	}
 	
-	std::cout << "_ _ _ _ _ _ _ _" << endl;
+	std::cout << score << endl;
+
 	do {
 		std::cout << "Guess: ";
 		iss.clear();
@@ -79,21 +88,43 @@ bool hangman(bool won, const std::string& wrd, std::map<int, char>& lttrs, char&
 
 	c = std::toupper(c);
 
+	oldScr = score;
 
+	auto it = wrd.begin();
+
+	while ((it = std::find_if(it, wrd.end(), [c](char d) {return d == c; })) != wrd.end()) {
+		score[it - wrd.begin()] = *it;
+		it++;
+	}
+	
+	if (oldScr.compare(score) == 0) {
+		if (hangman(false, wrd, lttrs, c, ++state, score) == false)
+			return false;
+	}
+	if(score.find("_") != std::string::npos)
+		hangman(false, wrd, lttrs, c, state, score);
+
+	return true;
 }
 
 int main() {
-	std::string theWrd = "KANGAROO", gssdWrd;
 	
-	int lives = 6;
-	char c; 
-	std::map<int, char> lttrs = { {-1, '\n'} };
-
-	std::cout << "Hangman. Guess the word";
-
-	hangman(true, theWrd, lttrs, c, -1);
 	
+	std::vector<char> lttrs;
+	std::vector<char> wrd = { 'K', 'A','N','G', 'A', 'R','O','O' };
+	std::string score = std::string(wrd.size(), '_');
 
+	std::cout << "Hangman. Guess the word" << endl;
+
+	char c = 'A';
+
+	if (hangman(false, wrd, lttrs, c, -1, score)) {
+		std::cout << "You won!\tThe word was: " << score; return 0;
+	}
+	else
+		std::cout << "You lost!\tThe word was: ";
+	for (auto x : wrd)
+		std::cout << x;
 
 	return 0;
 }
