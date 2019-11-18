@@ -71,6 +71,9 @@ int main() {
 
 	//Normal distribution
 	std::map<int, int> disN;
+
+	//Mean of 1 to 6 is 3
+	//Standart distribution is set to 1
 	for (int n = 0; n < 10000; n++) ++disN[randomBetweenN(3, 1, e2)];
 	printDistribution(disN);
 
