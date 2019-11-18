@@ -14,14 +14,10 @@ using std::endl;
 std::istringstream iss;
 
 //Recursive function
-bool hangman(bool won, const std::vector<char>& wrd, char& c, int state, std::string& score) {
+bool hangman(bool won, const std::vector<char>& wrd, char& c, int& state, std::string& score) {
 	//Check winning
 	if (won)
 		return true;
-
-	//Check loosing
-	if (state >= 5)
-		return false;
 
 	std::string gssdWrd, oldScr; int n;
 
@@ -109,8 +105,10 @@ bool hangman(bool won, const std::vector<char>& wrd, char& c, int state, std::st
 	//If score has not changed aka guess wrong
 	//Increase state aka lose lives
 	if (oldScr.compare(score) == 0) {
-		if (hangman(false, wrd, c, ++state, score) == false)
-			return false;
+		if (state == 4)
+			return true;
+		if (hangman(false, wrd, c, ++state, score))
+			return true;
 	}
 	
 	//If there is still blank remaining 
@@ -119,13 +117,13 @@ bool hangman(bool won, const std::vector<char>& wrd, char& c, int state, std::st
 	if(score.find("_") != std::string::npos)
 		hangman(false, wrd, c, state, score);
 
-	//Probably wont get here if it do automatic win
+	//Probably wont get here, if it do automatic win
 	return true;
 }
 
 int main() {
 	
-	
+	int state = -1;
 	std::vector<char> wrd = { 'K', 'A','N','G', 'A', 'R','O','O' };
 	std::string score = std::string(wrd.size(), '_');
 
@@ -136,11 +134,13 @@ int main() {
 	char c = 'A';
 
 	//Check winnings and loses
-	if (hangman(false, wrd, c, -1, score)) {
-		std::cout << "You won!\tThe word was: " << score; return 0;
+	if (hangman(false, wrd, c, state, score)) {
+		if (state != 4) {
+			std::cout << "You won!\tThe word was: " << score; return 0;
+		}
+		else
+			std::cout << "You lost!\tThe word was: ";
 	}
-	else
-		std::cout << "You lost!\tThe word was: ";
 	//Print the wrd
 	for (auto x : wrd)
 		std::cout << x;
