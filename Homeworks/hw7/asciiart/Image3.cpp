@@ -8,11 +8,16 @@
 Image3::Image3(unsigned width, unsigned height) {
 	// TODO: resize the pixels array
 	// TODO: initialize the internal w and h members
+	pixels.resize(width * height);
+	w = width;
+	h = height;
 }
 
 // Return a pixel from the image
 const Color3& Image3::getPixel(unsigned x, unsigned y) const {
 	// TODO: Add error handling for unknown pixels
+	Color3 a;
+	if ((w * y + x) > pixels.size()) return ;
 	// TERRIBLE OPTION 1: throw
 	// BETTER OPTION 2: return a color
 	// Hint: maybe this is already in the class?
@@ -22,11 +27,13 @@ const Color3& Image3::getPixel(unsigned x, unsigned y) const {
 
 void Image3::setPixel(unsigned x, unsigned y, const Color3& color) {
 	// TODO: Set the pixel to the new color
+	pixels[y * x + w] = color;
 }
 
 bool Image3::savePPM(const std::string& path) const {
 	// TODO: Save the image to the disk
 	// REQUIREMENT: Use the STREAM operators for the file contents
+
 	return false;
 }
 
