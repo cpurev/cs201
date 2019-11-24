@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="asciiart.cpp" />
     <ClCompile Include="Color3.cpp" />
     <ClCompile Include="Image3.cpp" />
   </ItemGroup>

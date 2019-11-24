@@ -25,15 +25,16 @@ Color3::Color3(int R, int G, int B) {
 int Color3::weightedSum() const {
 	// Implement Y = 0.2126R + 0.7152G + 0.0722B
 	// Ensure values are inside the range 0 to 255
-	return 0;
+	
+	return saturate((0.2126*r + 0.7152*g + 0.0722*b), 255);
 }
 
 char Color3::asciiValue() const {
 	// Use at least 16 characters, sort these from dark to light
 	// or light to dark and then map the weightedSum() to the range
 	// 0 to 15. Please pick your own characters
-	const char values[] = "ABCDEFGHIJKLMNOP";
-	unsigned darkness = 0;
+	const char values[] = "Q@&%$#?|}{><:-. ";
+	unsigned darkness = weightedSum()/16;
 	return values[darkness];
 }
 
@@ -48,5 +49,15 @@ std::ostream& operator<<(std::ostream& ostr, const Color3& color) {
 
 std::istream& operator>>(std::istream& istr, Color3& color) {
 	// Implement your own input for a Color3
+	int r, g, b;
+	istr >> r;
+	istr >> g;
+	istr >> b;
+
+	color.r = (unsigned char)r;
+	color.g = (unsigned char)g;
+	color.b = (unsigned char)b;
+
+
 	return istr;
 }
