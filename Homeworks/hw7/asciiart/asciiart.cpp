@@ -9,11 +9,11 @@
 
 int main() {
 
-	Color3 a(255, 255, 255);
-	
-	//std::ofstream fout("test.txt");
+	Image3 a(80, 80);
 
+	a.loadPPM("parrot - Copy.ppm");
 
+	a.savePPM("asd.txt");
 
 	return 0;
 }
