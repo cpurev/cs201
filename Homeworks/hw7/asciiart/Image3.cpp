@@ -33,6 +33,8 @@ void Image3::setPixel(unsigned x, unsigned y, const Color3& color) {
 	pixels[(y * w) + x] = color;
 }
 
+//Save ascii to file
+//Call << operator
 bool Image3::savePPM(const std::string& path) const {
 	// TODO: Save the image to the disk
 	// REQUIREMENT: Use the STREAM operators for the file contents
@@ -47,6 +49,8 @@ bool Image3::savePPM(const std::string& path) const {
 	return true;
 }
 
+//Load the ppm file
+//Call >> operator
 bool Image3::loadPPM(const std::string& path) {
 	// TODO: Load an image from the disk
 	// REQUIREMENT: Use the STREAM operators for the file contents
@@ -62,6 +66,7 @@ bool Image3::loadPPM(const std::string& path) {
 
 }
 
+//Set stream to the ASCII
 void Image3::printASCII(std::ostream& ostr) const {
 	// TODO: Print an ASCII version of this image
 	for (auto i = 0; i < pixels.size(); i++) {
@@ -73,6 +78,8 @@ void Image3::printASCII(std::ostream& ostr) const {
 
 // STREAM OPERATORS for IMAGE3 class
 
+//Print ascii value
+//New line everytime width is reached
 std::ostream& operator<<(std::ostream& ostr, const Image3& image) {
 	// TODO: Write out PPM image format to stream
 	// ASSUME FORMAT WILL BE GOOD
@@ -84,6 +91,9 @@ std::ostream& operator<<(std::ostream& ostr, const Image3& image) {
 	return ostr;
 }
 
+//The ppm file must be in right format
+//There are 3 values going in sequential order
+//Put those in new color and in the vector
 std::istream& operator>>(std::istream& istr, Image3& image) {
 	// TODO: Read in PPM image format from stream
 	// MAKE SURE FORMAT IS GOOD!!!

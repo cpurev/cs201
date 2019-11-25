@@ -29,11 +29,12 @@ int Color3::weightedSum() const {
 	return saturate((0.2126*r + 0.7152*g + 0.0722*b), 255);
 }
 
+//We divide by 15 and % by 15 to get the values between 0 to 15
 char Color3::asciiValue() const {
 	// Use at least 16 characters, sort these from dark to light
 	// or light to dark and then map the weightedSum() to the range
 	// 0 to 15. Please pick your own characters
-	const char values[] = "Q@&%$#?|}{><:-.,";
+	const char values[] = "Q@&%$96#?|=+:-. ";
 	unsigned darkness = (weightedSum()/15) % 15;
 	return values[darkness];
 }
