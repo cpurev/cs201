@@ -11,7 +11,7 @@ int main() {
 
 	Image3 a(80, 80);
 
-	a.loadPPM("parrot - Copy.ppm");
+	a.loadPPM("parrot.ppm");
 
 	a.savePPM("asd.txt");
 

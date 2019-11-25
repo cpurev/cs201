@@ -108,6 +108,10 @@ std::istream& operator>>(std::istream& istr, Image3& image) {
 		std::getline(istr, c);
 		if (!istr)
 			break;
+		if (c.find("#") != std::string::npos) continue;
+		if (c.find(" ") != std::string::npos) continue;
+		if (c == "") continue;
+		if (c == "P3") continue;
 		iss.str(c); 
 		iss >> n;
 
