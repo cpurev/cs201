@@ -26,8 +26,14 @@ int inptChkr() {
 	return temp;
 }
 
+
 int main() {
-	std::string str; int temp;
+	//String to store input
+	std::string str; 
+
+	//int to parse input to
+	int temp;
+
 	Agent ag;
 	Simulator sim;
 
@@ -38,31 +44,45 @@ int main() {
 		temp = inptChkr();
 	} while (temp == 0);
 
+	//Init env
 	Enviroment env(temp);
 
+	//Infite loop till user exits
 	while (true) {
+		
+		//Env is changing every loop so we perciece it everytime
 		ag.percieve(env);
 
+		//Ask user for the desired temperature
+		//Thinks if correct input
 		switch (sim.askOwner()) {
 			case -1: continue;
 			case 0: return -1;
 			case 1: ag.think(sim); break;
 		}
 
+		//Act on the thought
 		ag.act(env);
 
+		//Loop 10 times to change the temperature and then ask the user
 		for (auto i = 0; i < 10; i++) {
 
+			//Print the heater condition
 			if (env.heater())
 				std::cout << "Heater is on:";
 			else
 				std::cout << "Heater is off:";
 
+			//If the desired temperature is achieved then we enter
+			//stale state where we print the desired temp
 			if (!sim.stale)
 				std::cout << env.iteration() << '\n';
 			else
 				std::cout << env.getTemp() << '\n';
-			ag.percieve(env);
+
+			//Think and act on the temperature change
+			//Think defines the states
+			//Act changes the states accros the other objects
 			ag.think(sim);
 			ag.act(env);
 		}
