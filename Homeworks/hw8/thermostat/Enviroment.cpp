@@ -5,6 +5,10 @@
 
 #include "Enviroment.hpp"
 
+Enviroment::Enviroment(int n) {
+	temp = n;
+}
+
 void Enviroment::iteration() {
 
 }
