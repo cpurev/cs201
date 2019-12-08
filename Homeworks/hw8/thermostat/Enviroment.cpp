@@ -5,14 +5,17 @@
 
 #include "Enviroment.hpp"
 
+//Constructor for the starting values
 Enviroment::Enviroment(int n) {
 	tempE = n; htr = false;
 }
 
+//Get heater state
 bool Enviroment::heater() {
 	return htr;
 }
 
+//According to heater state change the temperature
 int Enviroment::iteration() {
 	if (htr == true)
 		return tempE++;
@@ -20,10 +23,12 @@ int Enviroment::iteration() {
 		return tempE--;
 }
 
+//Get the temperature of the enviroment
 int Enviroment::getTemp() const{
 	return tempE;
 }
 
+//Set the heater state
 void Enviroment::setHeat(bool& a){
 	htr = a;
 }
