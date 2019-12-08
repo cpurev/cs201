@@ -10,7 +10,9 @@ public:
 	Enviroment(int num);
 	void iteration();
 	int getTemp() const;
+	bool setHeat(const bool& a) const;
 private:
 	int tempE;
+	bool htr;
 };
 #endif // !ENV_HPP

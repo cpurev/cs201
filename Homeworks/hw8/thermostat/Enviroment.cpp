@@ -16,3 +16,7 @@ void Enviroment::iteration() {
 int Enviroment::getTemp() const{
 	return tempE;
 }
+
+bool Enviroment::setHeat(const bool& a) const {
+	htr = a;
+}

@@ -11,7 +11,7 @@ Agent::Agent() {
 }
 
 void Agent::act(const Enviroment& e) {
-	
+	e.setHeat(heat);
 }
 
 void Agent::percieve(const Enviroment& e) {

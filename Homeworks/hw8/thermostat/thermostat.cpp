@@ -11,14 +11,38 @@
 #include <iostream>
 
 int main() {
-	std::istringstream iss;
 	std::string str; int temp;
 	Agent ag;
 	Simulator sim;
 
-	std::cout << "Current Temperature/Enter reasonable number between 17C and 26C\n/Enter wrong you ruined it/0 to exit ~ "; 
+	std::cout << "Current Temperature\tEnter reasonable number between 17C and 26C\n\t0 to exit ~ "; 
 
-	//Right input checker program ends if wrong
+	//Input check
+	do {
+		temp = inptChkr();
+	} while (temp == 0);
+
+	Enviroment env(temp);
+	ag.percieve(env);
+
+	while (true) {
+		std::cout << "Enter the temperature you want ~ ";
+
+		ag.think(sim);
+
+	}
+
+
+	return 0;
+
+}
+
+//Right inpute checker
+int inptChkr() {
+	std::istringstream iss;
+	std::string str;
+	int temp;
+
 	std::getline(std::cin, str);
 	iss.str(str);
 	if (!(iss >> temp))
@@ -26,15 +50,5 @@ int main() {
 	if (!(16 < temp && temp < 27))
 		return 0;
 
-	Enviroment env(temp);
-
-	std::cout << ag.tempA;
-
-	//while (true) {
-
-	//}
-
-
-	return 0;
-
+	return temp;
 }
