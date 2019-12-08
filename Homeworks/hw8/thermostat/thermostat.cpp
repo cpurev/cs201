@@ -83,6 +83,8 @@ int main() {
 			//Think and act on the temperature change
 			//Think defines the states
 			//Act changes the states accros the other objects
+			//We also percieve here since we dont in this looop
+			ag.percieve(env);
 			ag.think(sim);
 			ag.act(env);
 		}
