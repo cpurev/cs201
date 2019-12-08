@@ -13,7 +13,7 @@ public:
 	Agent();
 	void percieve(const Enviroment& e);
 	void think(Simulator& sim);
-	void act(const Enviroment& e);
+	void act(Enviroment& e);
 	int tempA;
 	bool heat;
 };

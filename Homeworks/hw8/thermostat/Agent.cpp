@@ -10,7 +10,7 @@ Agent::Agent() {
 	 heat = false;
 }
 
-void Agent::act(const Enviroment& e) {
+void Agent::act(Enviroment& e) {
 	e.setHeat(heat);
 }
 

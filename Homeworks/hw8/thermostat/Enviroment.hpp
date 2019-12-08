@@ -10,7 +10,7 @@ public:
 	Enviroment(int num);
 	void iteration();
 	int getTemp() const;
-	bool setHeat(const bool& a) const;
+	void setHeat(bool& a);
 private:
 	int tempE;
 	bool htr;

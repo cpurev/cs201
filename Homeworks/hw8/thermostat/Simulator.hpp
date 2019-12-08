@@ -8,7 +8,7 @@
 class Simulator {
 public:
 	Simulator() { usrTemp = 0; }
-	void askOwner();
+	int askOwner();
 	int usrTemp;
 };
 #endif // !SIM_HPP

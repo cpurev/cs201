@@ -7,24 +7,28 @@
 #include <iostream>
 #include <sstream>
 
-void Simulator::askOwner() {
+int Simulator::askOwner() {
 	std::string str; 
 	int temp;
 	std::istringstream iss;
 
-	std::cout << "Set the temperature of AC";
+	std::cout << "Set the temperature of AC ~ ";
 
 	//Right input checker
 	std::getline(std::cin, str);
 	iss.str(str);
 	if (!(iss >> temp))
-		return;
-	if (!(16 < temp && temp < 27))
-		return;
+		return -1;
 
 	//User exit
 	if (temp == 0)
-		return;
+		return 0;
+
+	if (!(16 < temp && temp < 27))
+		return -1;
+
 
 	usrTemp = temp;
+
+	return 1;
 }
