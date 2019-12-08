@@ -10,6 +10,6 @@ public:
 	Enviroment(int num);
 	void iteration();
 private:
-	int temp;
+	int tempE;
 };
 #endif // !ENV_HPP

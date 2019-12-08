@@ -8,8 +8,11 @@
 #ifndef AGENT_HPP
 #define AGENT_HPP
 class Agent {
+public:
 	void percieve(Enviroment e);
 	void think();
 	void act(Enviroment e);
+private:
+	int tempA;
 };
 #endif

@@ -6,7 +6,7 @@
 #include "Enviroment.hpp"
 
 Enviroment::Enviroment(int n) {
-	temp = n;
+	tempE = n;
 }
 
 void Enviroment::iteration() {

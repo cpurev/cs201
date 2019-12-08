@@ -6,7 +6,7 @@
 #include "Agent.hpp"
 
 void Agent::act(Enviroment e) {
-
+	e.
 }
 
 void Agent::percieve(Enviroment e) {
