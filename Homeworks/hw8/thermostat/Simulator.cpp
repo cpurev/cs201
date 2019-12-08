@@ -7,6 +7,10 @@
 #include <iostream>
 #include <sstream>
 
+//Ask the user for the desired temperature
+//Has to be within reasonable amount
+//Changes stale moment to false;
+//Does not affect the agent or simulator
 int Simulator::askOwner() {
 
 	stale = false;
