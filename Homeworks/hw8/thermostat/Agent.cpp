@@ -5,14 +5,32 @@
 
 #include "Agent.hpp"
 
-void Agent::act(Enviroment e) {
-	e.
+Agent::Agent() {
+	 tempA = 0; 
+	 heat = false;
 }
 
-void Agent::percieve(Enviroment e) {
-
+void Agent::act(const Enviroment& e) {
+	
 }
 
-void Agent::think() {
+void Agent::percieve(const Enviroment& e) {
+	tempA = e.getTemp();
+}
+
+void Agent::think(Simulator& sim) {
+
+	//User wants it colder
+	if ((tempA - sim.usrTemp) < 0)
+		heat = false;
+
+	//User wants it hoter
+	else if ((tempA - sim.usrTemp) > 0)
+		heat = true;
+
+	//User doesnt want to change
+	else
+		heat = true;
+
 
 }

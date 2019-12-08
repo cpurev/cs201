@@ -6,6 +6,9 @@
 #ifndef SIM_HPP
 #define SIM_HPP
 class Simulator {
+public:
+	Simulator() { usrTemp = 0; }
 	void askOwner();
+	int usrTemp;
 };
 #endif // !SIM_HPP

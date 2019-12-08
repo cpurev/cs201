@@ -12,3 +12,7 @@ Enviroment::Enviroment(int n) {
 void Enviroment::iteration() {
 
 }
+
+int Enviroment::getTemp() const{
+	return tempE;
+}

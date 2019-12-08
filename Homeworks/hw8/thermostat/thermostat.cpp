@@ -6,6 +6,7 @@
 #include "Agent.hpp"
 #include "Simulator.hpp"
 #include "Enviroment.hpp"
+
 #include <sstream>
 #include <iostream>
 
@@ -13,9 +14,9 @@ int main() {
 	std::istringstream iss;
 	std::string str; int temp;
 	Agent ag;
-	Simulator sin;
+	Simulator sim;
 
-	std::cout << "Current Temperature/Enter reasonable number between 17C and 26C\n/Enter wrong you ruined it ~ "; 
+	std::cout << "Current Temperature/Enter reasonable number between 17C and 26C\n/Enter wrong you ruined it/0 to exit ~ "; 
 
 	//Right input checker program ends if wrong
 	std::getline(std::cin, str);
@@ -27,10 +28,11 @@ int main() {
 
 	Enviroment env(temp);
 
+	std::cout << ag.tempA;
 
-	while (true) {
+	//while (true) {
 
-	}
+	//}
 
 
 	return 0;

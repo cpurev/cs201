@@ -9,6 +9,7 @@ class Enviroment {
 public:
 	Enviroment(int num);
 	void iteration();
+	int getTemp() const;
 private:
 	int tempE;
 };
