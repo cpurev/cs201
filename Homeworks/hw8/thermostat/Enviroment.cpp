@@ -15,9 +15,9 @@ bool Enviroment::heater() {
 
 int Enviroment::iteration() {
 	if (htr == true)
-		return tempE--;
-	else
 		return tempE++;
+	else
+		return tempE--;
 }
 
 int Enviroment::getTemp() const{

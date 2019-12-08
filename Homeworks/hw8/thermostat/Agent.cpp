@@ -21,11 +21,11 @@ void Agent::percieve(const Enviroment& e) {
 void Agent::think(Simulator& sim) {
 
 	//User wants it colder
-	if ((tempA - sim.usrTemp) < 0)
+	if ((tempA - sim.usrTemp) > 0)
 		heat = false;
 
 	//User wants it hoter
-	else if ((tempA - sim.usrTemp) > 0)
+	else if ((tempA - sim.usrTemp) < 0)
 		heat = true;
 
 	//User doesnt want to change

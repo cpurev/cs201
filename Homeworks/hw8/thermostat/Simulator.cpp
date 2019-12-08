@@ -8,6 +8,9 @@
 #include <sstream>
 
 int Simulator::askOwner() {
+
+	stale = false;
+
 	std::string str; 
 	int temp;
 	std::istringstream iss;
