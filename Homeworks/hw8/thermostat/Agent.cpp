@@ -29,8 +29,9 @@ void Agent::think(Simulator& sim) {
 		heat = true;
 
 	//User doesnt want to change
-	else
-		heat = true;
-
+	else {
+		heat = false;
+		sim.stale = true;
+	}
 
 }

@@ -42,7 +42,7 @@ int main() {
 	ag.percieve(env);
 
 	while (true) {
-		std::cout << "ass";
+
 		switch (sim.askOwner()) {
 			case -1: continue;
 			case 0: return -1;
@@ -52,7 +52,15 @@ int main() {
 		ag.act(env);
 
 		for (auto i = 0; i < 10; i++) {
-			env.iteration();
+			if (env.heater())
+				std::cout << "Heater is on:";
+			else
+				std::cout << "Heater is off:";
+			if (!sim.stale)
+				std::cout << env.iteration() << '\n';
+			else
+				std::cout << env.getTemp() << '\n';
+			ag.think(sim);
 		}
 
 	}

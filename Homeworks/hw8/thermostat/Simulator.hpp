@@ -10,5 +10,6 @@ public:
 	Simulator() { usrTemp = 0; }
 	int askOwner();
 	int usrTemp;
+	bool stale = false;
 };
 #endif // !SIM_HPP

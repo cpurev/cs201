@@ -9,8 +9,15 @@ Enviroment::Enviroment(int n) {
 	tempE = n; htr = false;
 }
 
-void Enviroment::iteration() {
+bool Enviroment::heater() {
+	return htr;
+}
 
+int Enviroment::iteration() {
+	if (htr == true)
+		return tempE--;
+	else
+		return tempE++;
 }
 
 int Enviroment::getTemp() const{

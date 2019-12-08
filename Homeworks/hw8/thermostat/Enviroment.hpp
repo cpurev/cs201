@@ -8,9 +8,10 @@
 class Enviroment {
 public:
 	Enviroment(int num);
-	void iteration();
+	int iteration();
 	int getTemp() const;
 	void setHeat(bool& a);
+	bool heater();
 private:
 	int tempE;
 	bool htr;
