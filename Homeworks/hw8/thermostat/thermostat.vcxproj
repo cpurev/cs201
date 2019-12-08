@@ -123,6 +123,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Agent.cpp" />
+    <ClCompile Include="Enviroment.cpp" />
+    <ClCompile Include="Simulator.cpp" />
     <ClCompile Include="thermostat.cpp" />
   </ItemGroup>
   <ItemGroup>

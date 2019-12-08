@@ -3,6 +3,8 @@
 //Thermostat agent
 //Chuluunbat Purev
 
+#include "Enviroment.hpp"
+
 #ifndef AGENT_HPP
 #define AGENT_HPP
 class Agent {
